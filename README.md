@@ -51,7 +51,8 @@ separate directory against this film project. Output evidence is written to
 `out/review/`. The optional export path is `npm run render` followed by
 `npm run verify`. The current delivery includes a Studio preview and a checked MP4.
 
-The source project remains local on the `film/imagine-science-explainer` branch.
+The source project is published on the
+[`film/imagine-science-explainer` branch](https://github.com/iamnikhiliyer/imagine-science/tree/film/imagine-science-explainer).
 This is a product-explainer extraction exercise; it does not establish scientific
 subject-matter accuracy or production-time savings for other researchers.
 
