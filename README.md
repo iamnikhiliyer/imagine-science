@@ -30,6 +30,7 @@ The film is 1920×1080 at 30 fps, 920 frames.
 - `src/explainer/`: earlier draft, caption overlay, voice word timings, and waveform.
 - `public/explainer/`: prepared narration and the toolkit's original starter preview.
 - `production/revision-2.md`: current visual direction and review findings.
+- `production/script-development.md`: researcher-focused script treatment and A/V draft for the next writing revision.
 - `production/review.md`: superseded first-draft review and extraction findings.
 
 ```sh
