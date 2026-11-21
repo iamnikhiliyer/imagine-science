@@ -106,7 +106,7 @@ def main():
         'source': 'Approved continuous paragraph in production/script.json; one input to local Kokoro-82M, kokoro 0.9.4, af_heart voice, speed 1.05, English; native model pauses only; synthesis word timings in src/explainer/words.json',
         'license': 'Original script MIT; synthesis using Apache-2.0 Kokoro-82M model', 'sha256': hashlib.sha256(output.read_bytes()).hexdigest()})
     manifest = {'schemaVersion': 1, 'compositionId': 'Imagine-Science', 'title': 'Imagine Science — a moving explanation',
-        'width': 1920, 'height': 1080, 'fps': FPS, 'durationInFrames': duration, 'scenes': scenes, 'cues': cues,
+        'width': previous['width'], 'height': previous['height'], 'fps': FPS, 'durationInFrames': duration, 'scenes': scenes, 'cues': cues,
         'assets': assets, 'audio': {'mode': 'narrated', 'path': 'explainer/narration.flac', 'captions': captions, 'speechWindows': windows},
         'review': {'extraFrames': sorted(set([20, 90, 145] + [min(duration-1,c['frame']+25) for c in cues])), 'maxFrames': 120},
         'stationaryRegions': []}

@@ -1,6 +1,6 @@
 # Imagine Science — from paper to film
 
-This narrated explainer follows an original diffusion illustration through source review, TypeScript, React and SVG, frame animation in Remotion, synchronized Kokoro narration and captions, FFmpeg export, and a timing correction. The film runs for 2,429 frames at 30 fps, approximately 81 seconds.
+This narrated explainer follows an original diffusion illustration through source review, TypeScript, React and SVG, frame animation in Remotion, synchronized Kokoro narration and captions, FFmpeg export, and a timing correction. The native 3840 × 2160 film runs for 2,429 frames at 30 fps, approximately 81 seconds.
 
 ## Preview
 
@@ -17,7 +17,8 @@ Choose **Imagine-Science** for the current film. Earlier compositions are availa
 - `production/script.json`: exact delivered narration.
 - `production/synthesize.py`: optional local synthesis/alignment preparation.
 - `film.project.json`: scene timing, captions, review cues, and asset provenance.
-- `src/explainer/MethodFilm.tsx` and `src/explainer/optics/`: camera choreography, layered optical instrument, illustrative particles, and filmstrip.
+- `src/explainer/LineFilm.tsx`: current fixed-camera vector animations aligned to the narration.
+- `src/explainer/MethodFilm.tsx` and `src/explainer/optics/`: the earlier optical-instrument cut.
 - `production/make-optics.py`: reproduces the two original material and lighting textures with NumPy and FFmpeg.
 - `src/explainer/process/`: source and timing for the earlier continuous film.
 - `src/explainer/`: earlier draft, caption overlay, voice word timings, and waveform.

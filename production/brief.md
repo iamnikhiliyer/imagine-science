@@ -2,12 +2,12 @@
 
 Audience: researchers and scientific communicators discovering the project.
 Goal: explain what the toolkit provides, its workflow, and the researcher's role.
-Format: landscape 1920×1080, 30 fps, approximately 81 seconds, local synthesized
+Format: landscape 3840×2160, 30 fps, approximately 81 seconds, local synthesized
 English narration with synchronized captions. Duration follows the delivered voice.
 
 ## Visual contract
 
-A single optical instrument carries the film. The camera follows a marked amber particle from a printed research note into a glass chamber. It drops to the edge as component planes separate, follows the voice around the rim, tracks alongside a moving strip of film, then returns to the particle for a matched replay of a late label and its correction. Dark teal light, brushed metal, ivory paper, and sparse engraving carry forward the earlier process film’s art direction. Caption and voice timings follow the existing recording.
+The fixed frame centers one vector drawing on warm paper. Dark green ink describes the figure and a rust-colored dot identifies one particle. Each narrated verb moves one element: a line traces a claim, a shape draws, a cloud spreads, three frames join, and one timing mark moves. Other elements rest while the viewer reads. Captions use the original phrase boundaries; the approved voice recording sets every cue. All shapes and type render directly on a 3840 × 2160 canvas.
 
 The publication figure derives from 3,525,866 science and engineering articles in selected journals and conference proceedings indexed by Scopus for 2024, divided by 366 and rounded to the nearest hundred. [National Science Board, worldwide publication output](https://ncses.nsf.gov/pubs/nsbsep20261/discovery-r-d-activity-and-research-publications-2)
 
