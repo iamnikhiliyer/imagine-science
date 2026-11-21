@@ -10,12 +10,16 @@ export function ProcessVisual({ frame }: { frame: number }) {
   const state = processState(frame);
   const { camera } = state;
   const actionBeats = [
-    { frame: 180, text: 'Imagine Science' },
-    { frame: events.sources, text: 'Start from your references.' },
+    { frame: events.identity, text: 'Imagine Science' },
+    { frame: events.sources, text: 'From your references.' },
+    { frame: events.build, text: 'Build the scene.' },
     { frame: events.sequence, text: 'Show the sequence.' },
     { frame: events.slow, text: 'Slow the critical step.' },
-    { frame: 510, text: 'Match narration to action.' },
-    { frame: 695, text: 'Keep the scene editable.' },
+    { frame: events.match, text: 'Match narration to action.' },
+    { frame: events.freeze, text: 'Shape the explanation.' },
+    { frame: events.timingStart, text: 'Adjust the timing.' },
+    { frame: events.editStart, text: 'Refine the labels.' },
+    { frame: events.resume, text: 'Keep shaping the same project.' },
   ];
   const actionIndex = actionBeats.findIndex((beat,i)=>frame>=beat.frame && frame<(actionBeats[i+1]?.frame ?? events.closing));
   const action = actionBeats[actionIndex];
@@ -41,11 +45,11 @@ export function ProcessVisual({ frame }: { frame: number }) {
           <path d="M0 95H3700M0 555H3700" stroke="#779b89" strokeWidth="2"/>
           {Array.from({length:68},(_,i)=><g key={i}><rect x={i*55+8} y="106" width="25" height="15" rx="3" fill="#b4c9ab" opacity=".65"/><rect x={i*55+8} y="529" width="25" height="15" rx="3" fill="#b4c9ab" opacity=".65"/></g>)}
         </svg>}
-        <Plate frame={frame} sampleFrame={state.sampleFrame} layers={state.layers} wire={state.wire} scale={state.heroScale} inspect={state.inspect} correction={state.correction} cue={state.cue} narrationVisible={slowVisible}/>
+        <Plate frame={frame} sampleFrame={state.sampleFrame} layers={state.layers} wire={state.wire} scale={state.heroScale} inspect={state.inspect} correction={state.correction} cue={state.cue} narrationVisible={slowVisible} timingVisible={state.timingVisible} timingCorrection={state.timingCorrection}/>
         {state.layers>.01 && <div style={{ position: 'absolute', left: 560, top: 80, transform: 'translateZ(110px)', color: '#a6cbb6', fontSize: 23, opacity: state.layers, borderLeft: '1px solid #8ab79f', padding: '8px 16px', whiteSpace: 'nowrap' }}>Source, geometry, timing.<br/><span style={{fontSize:17,color:'#789f8e'}}>Independently editable.</span></div>}
       </div>
     </div>
-    <div style={{ position: 'absolute', left: 120, top: 100, color: '#9bbbab', fontSize: 21, letterSpacing: 2, opacity: 1-smooth(frame,155,180) }}>ILLUSTRATIVE SEQUENCE</div>
+    <div style={{ position: 'absolute', left: 120, top: 100, color: '#9bbbab', fontSize: 21, letterSpacing: 2, opacity: 1-smooth(frame,events.identity-15,events.identity) }}>ILLUSTRATIVE SEQUENCE</div>
     <div style={{ position: 'absolute', left: 120, top: 118, color: '#c1d6c4', fontSize: 36, letterSpacing: -.7, opacity: actionOpacity }}>{action?.text}</div>
     <div style={{ position: 'absolute', right: 120, top: 103, textAlign: 'right', color: '#d4e3c9', opacity: slowVisible }}>
       <div style={{ fontSize: 16, letterSpacing: 2, color: '#9ab9a6' }}>PLAYBACK</div>

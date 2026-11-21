@@ -1,379 +1,533 @@
 [
   {
     "text": "You",
-    "startMs": 675,
-    "endMs": 762,
+    "startMs": 250,
+    "endMs": 338,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "know",
-    "startMs": 762,
-    "endMs": 950,
+    "startMs": 338,
+    "endMs": 500,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "how",
-    "startMs": 950,
-    "endMs": 1112,
+    "startMs": 500,
+    "endMs": 662,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "the",
-    "startMs": 1112,
-    "endMs": 1200,
+    "startMs": 662,
+    "endMs": 750,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "mechanism",
-    "startMs": 1200,
-    "endMs": 1750,
+    "startMs": 750,
+    "endMs": 1300,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "works.",
-    "startMs": 1750,
-    "endMs": 2462,
+    "startMs": 1300,
+    "endMs": 1988,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Now",
-    "startMs": 2462,
-    "endMs": 2675,
+    "startMs": 1988,
+    "endMs": 2175,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "help",
-    "startMs": 2675,
-    "endMs": 2900,
+    "startMs": 2175,
+    "endMs": 2425,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "someone",
-    "startMs": 2900,
-    "endMs": 3138,
+    "startMs": 2425,
+    "endMs": 2688,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "else",
-    "startMs": 3138,
-    "endMs": 3362,
+    "startMs": 2688,
+    "endMs": 2900,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "see",
-    "startMs": 3362,
-    "endMs": 3575,
+    "startMs": 2900,
+    "endMs": 3088,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "it.",
-    "startMs": 3575,
-    "endMs": 4100,
+    "startMs": 3088,
+    "endMs": 3612,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Imagine",
-    "startMs": 6675,
-    "endMs": 7162,
+    "startMs": 3612,
+    "endMs": 4088,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Science",
-    "startMs": 7162,
-    "endMs": 7900,
+    "startMs": 4088,
+    "endMs": 4525,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "helps",
-    "startMs": 7900,
-    "endMs": 8162,
+    "startMs": 4525,
+    "endMs": 4762,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "you",
-    "startMs": 8162,
-    "endMs": 8275,
+    "startMs": 4762,
+    "endMs": 4875,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "build",
-    "startMs": 8275,
-    "endMs": 8562,
+    "startMs": 4875,
+    "endMs": 5162,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "scientific",
-    "startMs": 8562,
-    "endMs": 9150,
+    "startMs": 5162,
+    "endMs": 5750,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "animations",
-    "startMs": 9150,
-    "endMs": 10088,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "with",
-    "startMs": 10088,
-    "endMs": 10238,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "your",
-    "startMs": 10238,
-    "endMs": 10350,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "coding",
-    "startMs": 10350,
-    "endMs": 10725,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "agent.",
-    "startMs": 10725,
-    "endMs": 11550,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "Start",
-    "startMs": 12817,
-    "endMs": 13054,
+    "startMs": 5750,
+    "endMs": 6400,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "from",
-    "startMs": 13054,
-    "endMs": 13179,
+    "startMs": 6400,
+    "endMs": 6538,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "your",
-    "startMs": 13179,
-    "endMs": 13292,
+    "startMs": 6538,
+    "endMs": 6650,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "references.",
-    "startMs": 13292,
-    "endMs": 14442,
+    "text": "references",
+    "startMs": 6650,
+    "endMs": 7250,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "Show",
-    "startMs": 14442,
-    "endMs": 14692,
+    "text": "with",
+    "startMs": 7250,
+    "endMs": 7388,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "your",
+    "startMs": 7388,
+    "endMs": 7500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "coding",
+    "startMs": 7500,
+    "endMs": 7875,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "agent.",
+    "startMs": 7875,
+    "endMs": 8762,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Start",
+    "startMs": 8762,
+    "endMs": 9038,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "by",
+    "startMs": 9038,
+    "endMs": 9175,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "building",
+    "startMs": 9175,
+    "endMs": 9512,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "the",
-    "startMs": 14692,
-    "endMs": 14804,
+    "startMs": 9512,
+    "endMs": 9612,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "sequence,",
-    "startMs": 14804,
-    "endMs": 15579,
+    "text": "scene,",
+    "startMs": 9612,
+    "endMs": 10150,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "slow",
-    "startMs": 15579,
-    "endMs": 15854,
+    "text": "then",
+    "startMs": 10150,
+    "endMs": 10362,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "show",
+    "startMs": 10362,
+    "endMs": 10600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "how",
+    "startMs": 10600,
+    "endMs": 10762,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "the",
-    "startMs": 15854,
-    "endMs": 15942,
+    "startMs": 10762,
+    "endMs": 10862,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "sequence",
+    "startMs": 10862,
+    "endMs": 11325,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "unfolds.",
+    "startMs": 11325,
+    "endMs": 12450,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Slow",
+    "startMs": 12450,
+    "endMs": 12712,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 12712,
+    "endMs": 12800,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "critical",
-    "startMs": 15942,
-    "endMs": 16367,
+    "startMs": 12800,
+    "endMs": 13200,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "step,",
-    "startMs": 16367,
-    "endMs": 16867,
+    "text": "step",
+    "startMs": 13200,
+    "endMs": 13525,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "so",
+    "startMs": 13525,
+    "endMs": 13638,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 13638,
+    "endMs": 13762,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "audience",
+    "startMs": 13762,
+    "endMs": 14225,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "can",
+    "startMs": 14225,
+    "endMs": 14400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "follow",
+    "startMs": 14400,
+    "endMs": 14750,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "it,",
+    "startMs": 14750,
+    "endMs": 15050,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "and",
-    "startMs": 16867,
-    "endMs": 16992,
+    "startMs": 15050,
+    "endMs": 15175,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "match",
-    "startMs": 16992,
-    "endMs": 17317,
+    "startMs": 15175,
+    "endMs": 15450,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "the",
-    "startMs": 17317,
-    "endMs": 17417,
+    "startMs": 15450,
+    "endMs": 15550,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "narration",
-    "startMs": 17417,
-    "endMs": 17967,
+    "startMs": 15550,
+    "endMs": 16075,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "to",
-    "startMs": 17967,
-    "endMs": 18054,
+    "startMs": 16075,
+    "endMs": 16163,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "the",
-    "startMs": 18054,
-    "endMs": 18167,
+    "startMs": 16163,
+    "endMs": 16275,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "action.",
-    "startMs": 18167,
-    "endMs": 19017,
+    "startMs": 16275,
+    "endMs": 17225,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "Keep",
-    "startMs": 23817,
-    "endMs": 24029,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "the",
-    "startMs": 24029,
-    "endMs": 24154,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "scene",
-    "startMs": 24154,
-    "endMs": 24479,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "editable",
-    "startMs": 24479,
-    "endMs": 25167,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "as",
-    "startMs": 25167,
-    "endMs": 25304,
+    "text": "As",
+    "startMs": 17225,
+    "endMs": 17388,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "your",
-    "startMs": 25304,
-    "endMs": 25417,
+    "startMs": 17388,
+    "endMs": 17488,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "explanation",
-    "startMs": 25417,
-    "endMs": 26092,
+    "startMs": 17488,
+    "endMs": 18125,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "develops.",
-    "startMs": 26092,
-    "endMs": 27017,
+    "text": "develops,",
+    "startMs": 18125,
+    "endMs": 18775,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "adjust",
+    "startMs": 18775,
+    "endMs": 19112,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 19112,
+    "endMs": 19200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "timing,",
+    "startMs": 19200,
+    "endMs": 19900,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "refine",
+    "startMs": 19900,
+    "endMs": 20312,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 20312,
+    "endMs": 20400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "labels,",
+    "startMs": 20400,
+    "endMs": 21100,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 21100,
+    "endMs": 21238,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "keep",
+    "startMs": 21238,
+    "endMs": 21538,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "shaping",
+    "startMs": 21538,
+    "endMs": 21912,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 21912,
+    "endMs": 22050,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "same",
+    "startMs": 22050,
+    "endMs": 22438,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "editable",
+    "startMs": 22438,
+    "endMs": 22900,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "project.",
+    "startMs": 22900,
+    "endMs": 23938,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Explore",
-    "startMs": 28283,
-    "endMs": 28683,
+    "startMs": 23938,
+    "endMs": 24425,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Imagine",
-    "startMs": 28683,
-    "endMs": 29108,
+    "startMs": 24425,
+    "endMs": 24912,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Science",
-    "startMs": 29108,
-    "endMs": 29508,
+    "startMs": 24912,
+    "endMs": 25350,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "on",
-    "startMs": 29508,
-    "endMs": 29708,
+    "startMs": 25350,
+    "endMs": 25550,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "GitHub.",
-    "startMs": 29708,
-    "endMs": 30558,
+    "startMs": 25550,
+    "endMs": 26400,
     "timestampMs": null,
     "confidence": null
   }

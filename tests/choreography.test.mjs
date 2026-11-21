@@ -26,29 +26,40 @@ test('the same specimen survives input, assembly, inspection, and the closing', 
 });
 
 test('layer assembly completes before a frame is inspected and refined', () => {
-  assert.ok(processState(events.build + 55).layers > .8);
-  assert.equal(processState(project.scenes[2].startFrame).layers, 0);
+  assert.ok(processState(events.build + 18).layers > .8);
+  assert.equal(processState(events.sequence + 24).layers, 0);
   assert.equal(processState(events.editStart).correction, 0);
   assert.equal(processState(events.editEnd).correction, 1);
 });
 
-test('the inspected frame freezes while the label is corrected, then motion resumes', () => {
-  assert.equal(processState(events.freeze + 5).sampleFrame, processState(events.resume - 5).sampleFrame);
+test('inspection holds, the timing adjustment scrubs, and label refinement holds the selected frame', () => {
+  assert.equal(processState(events.freeze + 5).sampleFrame, processState(events.timingStart).sampleFrame);
+  assert.ok(processState(events.timingEnd).sampleFrame > processState(events.timingStart).sampleFrame);
+  assert.equal(processState(events.editStart).sampleFrame, processState(events.resume).sampleFrame);
   assert.ok(processState(events.resume + 10).sampleFrame > processState(events.resume + 1).sampleFrame);
 });
 
 test('the closing keeps the animation alive while revealing its identity', () => {
-  assert.equal(processState(900).brand, 1);
-  assert.ok(processState(930).sampleFrame > processState(900).sampleFrame);
+  assert.equal(processState(project.durationInFrames - 30).brand, 1);
+  assert.ok(processState(project.durationInFrames - 1).sampleFrame > processState(project.durationInFrames - 30).sampleFrame);
 });
 
 test('the visible slowdown follows the delivered word slow and reaches quarter speed', () => {
-  assert.equal(events.slow, wordStart('slow'));
+  assert.equal(events.slow, wordStart('Slow'));
   assert.equal(processState(events.slow - 1).playbackRate, 1);
   assert.equal(processState(events.slow + 19).playbackRate, .25);
   const normalDelta = processState(events.sequence - 8).sampleFrame - processState(events.sequence - 12).sampleFrame;
   const slowDelta = processState(events.slow + 44).sampleFrame - processState(events.slow + 40).sampleFrame;
   assert.ok(Math.abs(slowDelta / normalDelta - .25) < 1e-6);
+});
+
+test('build, timing adjustment, and label refinement follow their spoken verbs', () => {
+  assert.equal(events.build, wordStart('building'));
+  assert.equal(events.timingStart, wordStart('adjust'));
+  assert.equal(events.editStart, wordStart('refine'));
+  assert.equal(events.closing, wordStart('Explore'));
+  assert.equal(processState(events.timingStart).timingCorrection, 0);
+  assert.equal(processState(events.timingEnd).timingCorrection, 1);
 });
 
 test('the ordered signal reaches a cell on the spoken word action', () => {
@@ -73,5 +84,18 @@ test('a downstream cell responds only after the signal arrives', () => {
 
 test('the captions contain exactly the approved wording', () => {
   const approved = JSON.parse(readFileSync(new URL('../production/script-candidate.json', import.meta.url)));
-  assert.equal(project.audio.captions.map(c => c.text).join(' '), approved.lines.join(' '));
+  assert.equal(project.audio.captions.map(c => c.text).join(' '), approved.text);
+});
+
+test('scene divisions follow words in the continuous take without audio padding', () => {
+  const script = JSON.parse(readFileSync(new URL('../production/script.json', import.meta.url)));
+  const narration = JSON.parse(readFileSync(new URL('../production/narration-timing.json', import.meta.url)));
+  assert.equal(words.map(w => w.text).join(' '), script.text);
+  assert.ok(narration.tailPaddingSamples < narration.sampleRate / project.fps);
+  assert.equal(project.durationInFrames, Math.ceil(narration.synthesizedSamples / narration.sampleRate * project.fps));
+  for (let i = 1; i < script.beats.length; i++) {
+    const anchor = script.beats[i].anchor.split(' ');
+    const index = words.findIndex((_, start) => anchor.every((text, offset) => words[start + offset]?.text === text));
+    assert.equal(project.scenes[i].startFrame, Math.ceil(words[index].startMs * .03));
+  }
 });

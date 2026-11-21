@@ -6,9 +6,9 @@ import project from '../../../film.project.json';
 
 const fill: CSSProperties = { position: 'absolute', inset: 0, borderRadius: 20 };
 
-export function Plate({ sampleFrame, frame, layers = 0, wire = 0, inspect = 0, correction = 0, scale = 1, x = 0, opacity = 1, miniature = false, cue = 0, narrationVisible = 0 }: {
+export function Plate({ sampleFrame, frame, layers = 0, wire = 0, inspect = 0, correction = 0, scale = 1, x = 0, opacity = 1, miniature = false, cue = 0, narrationVisible = 0, timingVisible = 0, timingCorrection = 0 }: {
   sampleFrame: number; frame: number; layers?: number; wire?: number; inspect?: number; correction?: number;
-  scale?: number; x?: number; opacity?: number; miniature?: boolean; cue?: number; narrationVisible?: number;
+  scale?: number; x?: number; opacity?: number; miniature?: boolean; cue?: number; narrationVisible?: number; timingVisible?: number; timingCorrection?: number;
 }) {
   const labelX = mix(510, 790, correction), labelY = mix(277, 95, correction);
   return <div style={{ position: 'absolute', left: -500, top: -300, width: 1000, height: 600, transformStyle: 'preserve-3d', transform: `translate3d(${x}px,0,0) scale(${scale})`, opacity }}>
@@ -44,6 +44,13 @@ export function Plate({ sampleFrame, frame, layers = 0, wire = 0, inspect = 0, c
       </g>
     </svg>
     {!miniature && <div style={{ position: 'absolute', left: 35, bottom: 27, color: '#6d9588', fontSize: 14, letterSpacing: 2, transform: 'translateZ(26px)', opacity: smooth(frame,105,145) }}>ILLUSTRATIVE · SOURCE RETAINED</div>}
+    {!miniature && <svg width="1000" height="690" style={{ position: 'absolute', inset: 0, overflow: 'visible', transform: 'translateZ(26px)', opacity: timingVisible }}>
+      <text x="120" y="619" fill="#a7c4b0" fontSize="15" letterSpacing="1.5">SEQUENCE TIMING</text>
+      <path d="M120 650H880" stroke="#496f63" strokeWidth="3"/>
+      <rect x="245" y="638" width={mix(290,420,timingCorrection)} height="24" rx="4" fill="#83bda55c" stroke="#b4d8ba"/>
+      {[245,mix(535,665,timingCorrection)].map(x=><g key={x}><path d={`M${x} 628V672`} stroke="#e5d3b0" strokeWidth="3"/><circle cx={x} cy="650" r="5" fill="#e5d3b0"/></g>)}
+      <text x="880" y="619" textAnchor="end" fill="#e5d3b0" fontSize="17">{(mix(1,1.45,timingCorrection)).toFixed(2)} s</text>
+    </svg>}
     {!miniature && <svg width="1000" height="690" style={{ position: 'absolute', inset: 0, overflow: 'visible', transform: 'translateZ(26px)', opacity: narrationVisible }}>
       <path d="M120 644H880" stroke="#618c79" strokeWidth="1"/>
       {waveform.map((value,i)=><path key={i} d={`M${120+i*9.5} ${644-value*13}v${Math.max(1,value*26)}`} stroke="#7ba98e" strokeWidth="2"/>)}

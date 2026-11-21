@@ -1,4 +1,5 @@
 import waveform from '../waveform.json';
+import project from '../../../film.project.json';
 import { mix, smooth } from './motion';
 
 export function Inputs({ frame, opacity, progress }: { frame: number; opacity: number; progress: number }) {
@@ -21,7 +22,7 @@ export function Inputs({ frame, opacity, progress }: { frame: number; opacity: n
         <text x="25" y="39" fontSize="15" letterSpacing="2" fill="#bdd4bc">NARRATION</text>
         <path d="M25 126H355" stroke="#456b61"/>
         {waveform.map((value,i)=><path key={i} d={`M${26+i*4.1} ${126-value*53}v${Math.max(2,value*106)}`} stroke={i/80<progress?'#c2e4c2':'#4c756b'} strokeWidth="2"/>) }
-        <text x="25" y="222" fontSize="15" fill="#90b5a2">narration.flac / 00:31.63</text>
+        <text x="25" y="222" fontSize="15" fill="#90b5a2">narration.flac / 00:{(project.durationInFrames / project.fps).toFixed(2)}</text>
       </svg>
     </div>
     <svg width="2000" height="1000" style={{ position: 'absolute', left: -1000, top: -500, transform: 'translateZ(72px)', overflow: 'visible', opacity }}>

@@ -1,5 +1,8 @@
 # Revision 3 — approved script in production
 
+Historical delivery; superseded by [revision-4.md](revision-4.md). The local
+`archive/before-continuous-narration` branch preserves this version.
+
 The researcher-focused 54-word script was approved by the user and implemented.
 The exact production wording is `production/script.json`; the approved editorial
 record is `production/script-candidate.json`.
