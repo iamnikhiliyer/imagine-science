@@ -1,6 +1,6 @@
 import '@fontsource-variable/manrope';
 import { AbsoluteFill, useCurrentFrame } from 'remotion';
-import project from '../../../film.project.json';
+import project from './project.json';
 import { Narration } from '../Narration';
 import { Inputs } from './Inputs';
 import { Plate } from './Plate';
@@ -65,7 +65,7 @@ export function ProcessVisual({ frame }: { frame: number }) {
 
 export function ProcessFilm() {
   const frame = useCurrentFrame();
-  return <AbsoluteFill><ProcessVisual frame={frame}/><Narration/></AbsoluteFill>;
+  return <AbsoluteFill><ProcessVisual frame={frame}/><Narration processDraft/></AbsoluteFill>;
 }
 export function IdeaShot() { return <ProcessVisual frame={useCurrentFrame()}/>; }
 export function ToolkitShot() { return <ProcessVisual frame={project.scenes[1].startFrame+useCurrentFrame()}/>; }

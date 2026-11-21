@@ -1,13 +1,6 @@
-# Imagine Science — a moving explanation
+# Imagine Science — from paper to film
 
-A 26.5-second narrated introduction to Imagine Science, created from a separate
-clone of the [public toolkit](https://github.com/iamnikhiliyer/imagine-science).
-
-The film follows one animated schematic as sources connect to it, editable layers
-separate and assemble, and temporal frames unfold for inspection and refinement.
-The researcher's scientific judgment stays in the loop. Five shot entry points
-are independently available in Studio. Narration is synthesized locally using
-Kokoro's af_heart voice, with word-aligned highlighting and editable phrase captions.
+This narrated explainer follows an original diffusion illustration through source review, TypeScript, React and SVG, frame animation in Remotion, synchronized Kokoro narration and captions, FFmpeg export, and a timing correction. The film runs for 2,429 frames at 30 fps, approximately 81 seconds.
 
 ## Preview
 
@@ -16,14 +9,7 @@ npm ci
 npm run dev -- --port=4322
 ```
 
-Open the printed URL and choose **Imagine-Science**. The shot compositions are
-under **Shots**. The earlier presentation draft is retained under **Earlier-Draft**.
-The film is 1920×1080 at 30 fps, 795 frames.
-
-The approved paragraph is synthesized as one continuous take, with no added
-inter-scene silence. An ordered signal sequence, quarter-speed demonstration,
-narration cue, timing adjustment, and persistent label edit follow the spoken words.
-The rendered video is `out/imagine-science-explainer.mp4`.
+Choose **Imagine-Science** for the current film. Earlier compositions are available in Studio.
 
 ## Source and review
 
@@ -31,13 +17,14 @@ The rendered video is `out/imagine-science-explainer.mp4`.
 - `production/script.json`: exact delivered narration.
 - `production/synthesize.py`: optional local synthesis/alignment preparation.
 - `film.project.json`: scene timing, captions, review cues, and asset provenance.
-- `src/explainer/process/`: continuous camera/actor choreography and scientific schematic.
+- `src/explainer/MethodFilm.tsx`: the current word-cued scientific illustration and workflow.
+- `src/explainer/process/`: source and timing for the earlier continuous film.
 - `src/explainer/`: earlier draft, caption overlay, voice word timings, and waveform.
 - `public/explainer/`: prepared narration and the toolkit's original starter preview.
 - `production/revision-2.md`: original continuous visual direction.
 - `production/script-development.md`: approved researcher-focused script and A/V treatment.
 - `production/revision-3.md`: superseded segmented-narration delivery.
-- `production/revision-4.md`: current continuous narration, timing, and validation.
+- `production/revision-4.md`: earlier continuous narration, timing, and validation.
 - `production/review.md`: superseded first-draft review and extraction findings.
 
 ```sh

@@ -1,7 +1,7 @@
 {
   "sampleRate": 24000,
-  "synthesizedSamples": 636000,
-  "tailPaddingSamples": 0,
-  "modelChunks": 1,
-  "scriptSha256": "d46df10b0a7d84d78e2ec54966251c83172b3ebdc5b7f5892b5493a4e773d3d7"
+  "synthesizedSamples": 1942800,
+  "tailPaddingSamples": 400,
+  "modelChunks": 3,
+  "scriptSha256": "38def562308e903b0d33a13093c4a38e0c90dd40f070b23c3b3241d1bf56fa53"
 }

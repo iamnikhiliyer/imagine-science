@@ -5,88 +5,156 @@
   "width": 1920,
   "height": 1080,
   "fps": 30,
-  "durationInFrames": 795,
+  "durationInFrames": 2429,
   "scenes": [
     {
-      "id": "idea",
-      "title": "Help someone see the mechanism",
+      "id": "opening",
+      "title": "A day of research",
       "startFrame": 0,
-      "endFrame": 109,
-      "caption": "You know how the mechanism works. Now help someone else see it."
+      "endFrame": 320,
+      "caption": "In 2024, researchers published an average of 9,600 science and engineering papers a day. For someone outside the field, even a single figure can be hard to follow."
     },
     {
-      "id": "toolkit",
-      "title": "From references to an editable scene",
-      "startFrame": 109,
-      "endFrame": 263,
-      "caption": "Imagine Science helps you build scientific animations from your references with your coding agent."
+      "id": "mission",
+      "title": "Imagine Science",
+      "startFrame": 320,
+      "endFrame": 532,
+      "caption": "Imagine Science is an open-source tool that uses AI agents to turn research into animations more people can understand."
     },
     {
-      "id": "shape",
-      "title": "Build and unfold the sequence",
-      "startFrame": 263,
-      "endFrame": 517,
-      "caption": "Start by building the scene, then show how the sequence unfolds. Slow the critical step so the audience can follow it, and match the narration to the action."
+      "id": "source",
+      "title": "From paper to storyline",
+      "startFrame": 532,
+      "endFrame": 760,
+      "caption": "It starts with a paper. The agent traces each claim back to its source, then builds a storyline around what the audience needs to see."
     },
     {
-      "id": "editable",
-      "title": "Adjust timing and refine labels",
-      "startFrame": 517,
-      "endFrame": 719,
-      "caption": "As your explanation develops, adjust the timing, refine the labels, and keep shaping the same editable project."
+      "id": "code",
+      "title": "Writing the scene",
+      "startFrame": 760,
+      "endFrame": 1097,
+      "caption": "The agent writes the scene in TypeScript. React describes the parts of the figure. SVG draws the shapes and labels. Remotion controls how they change from one frame to the next."
+    },
+    {
+      "id": "voice",
+      "title": "Matching voice to action",
+      "startFrame": 1097,
+      "endFrame": 1490,
+      "caption": "Next, Kokoro generates one continuous voice track. The timing of each phrase tells the agent where to place the captions and when to cue the motion. When the narrator says the particles spread, the cloud opens up on screen."
+    },
+    {
+      "id": "export",
+      "title": "Rendering the film",
+      "startFrame": 1490,
+      "endFrame": 1763,
+      "caption": "Once the timing is set, Remotion renders the frames in a browser. FFmpeg stitches them together and adds the narration to create the final MP4."
+    },
+    {
+      "id": "review",
+      "title": "Checking the export",
+      "startFrame": 1763,
+      "endFrame": 2118,
+      "caption": "Then the agent checks the export. It verifies the frame count, dimensions, and audio track, then compares individual frames with the source. Watching the film all the way through reveals things a still frame can miss."
+    },
+    {
+      "id": "revise",
+      "title": "Correcting a cue",
+      "startFrame": 2118,
+      "endFrame": 2352,
+      "caption": "If a label arrives late, or a movement suggests something the paper doesn\u2019t support, the agent changes the scene in code and renders it again."
     },
     {
       "id": "close",
       "title": "Explore Imagine Science",
-      "startFrame": 719,
-      "endFrame": 795,
-      "caption": "Explore Imagine Science on GitHub."
+      "startFrame": 2352,
+      "endFrame": 2429,
+      "caption": "Check out Imagine Science on GitHub."
     }
   ],
   "cues": [
     {
-      "frame": 109,
-      "label": "Imagine Science helps"
+      "frame": 607,
+      "label": "each claim"
     },
     {
-      "frame": 192,
-      "label": "from your references"
+      "frame": 666,
+      "label": "builds a storyline"
     },
     {
-      "frame": 276,
-      "label": "building the scene,"
+      "frame": 804,
+      "label": "TypeScript."
     },
     {
-      "frame": 311,
-      "label": "show how"
+      "frame": 848,
+      "label": "React describes"
     },
     {
-      "frame": 374,
-      "label": "Slow the critical"
+      "frame": 915,
+      "label": "SVG draws"
     },
     {
-      "frame": 456,
-      "label": "match the narration"
+      "frame": 993,
+      "label": "Remotion controls"
     },
     {
-      "frame": 489,
-      "label": "action."
+      "frame": 1145,
+      "label": "one continuous voice"
     },
     {
-      "frame": 564,
-      "label": "adjust the timing,"
+      "frame": 1271,
+      "label": "place the captions"
     },
     {
-      "frame": 597,
-      "label": "refine the labels,"
+      "frame": 1318,
+      "label": "cue the motion."
     },
     {
-      "frame": 638,
-      "label": "keep shaping"
+      "frame": 1385,
+      "label": "the particles spread,"
     },
     {
-      "frame": 719,
-      "label": "Explore Imagine Science"
+      "frame": 1547,
+      "label": "renders the frames"
+    },
+    {
+      "frame": 1619,
+      "label": "FFmpeg stitches"
+    },
+    {
+      "frame": 1671,
+      "label": "adds the narration"
+    },
+    {
+      "frame": 1845,
+      "label": "frame count,"
+    },
+    {
+      "frame": 1869,
+      "label": "dimensions,"
+    },
+    {
+      "frame": 1894,
+      "label": "audio track,"
+    },
+    {
+      "frame": 1928,
+      "label": "compares individual"
+    },
+    {
+      "frame": 2000,
+      "label": "Watching the film"
+    },
+    {
+      "frame": 2124,
+      "label": "label arrives late,"
+    },
+    {
+      "frame": 2267,
+      "label": "changes the scene"
+    },
+    {
+      "frame": 2314,
+      "label": "renders it again."
     }
   ],
   "assets": [
@@ -95,7 +163,7 @@
       "kind": "generated",
       "source": "Approved continuous paragraph in production/script.json; one input to local Kokoro-82M, kokoro 0.9.4, af_heart voice, speed 1.05, English; native model pauses only; synthesis word timings in src/explainer/words.json",
       "license": "Original script MIT; synthesis using Apache-2.0 Kokoro-82M model",
-      "sha256": "2581df97551c6a18a06e061872258ca7c44f21479e8b84494de4701ee2745bb3"
+      "sha256": "54728cb6900d7f158b9ec0177b39333df19d1214eb2357b44bf62dba5a6e4c6e"
     },
     {
       "path": "explainer/starter-preview.png",
@@ -110,6 +178,13 @@
       "source": "Earlier production narration preserved for Presentation-Draft comparison; original script and alignment retained in src/explainer/archive",
       "license": "Original script MIT; synthesis using Apache-2.0 Kokoro-82M model",
       "sha256": "f8193135e06f5f9a54a1f5e86563933715eae9a0ba2b7b918cb79f238f1e93dd"
+    },
+    {
+      "path": "explainer/archive/process.flac",
+      "kind": "generated",
+      "source": "Earlier continuous narration preserved for Process-Draft.",
+      "license": "Original script MIT; Kokoro-82M Apache-2.0",
+      "sha256": "2581df97551c6a18a06e061872258ca7c44f21479e8b84494de4701ee2745bb3"
     }
   ],
   "audio": {
@@ -118,99 +193,239 @@
     "captions": [
       {
         "startFrame": 8,
-        "endFrame": 60,
-        "text": "You know how the mechanism works."
+        "endFrame": 93,
+        "text": "In 2024, researchers published an average of"
       },
       {
-        "startFrame": 60,
-        "endFrame": 109,
-        "text": "Now help someone else see it."
+        "startFrame": 93,
+        "endFrame": 198,
+        "text": "9,600 science and engineering papers a day."
       },
       {
-        "startFrame": 109,
-        "endFrame": 173,
-        "text": "Imagine Science helps you build scientific"
+        "startFrame": 198,
+        "endFrame": 254,
+        "text": "For someone outside the field, even a"
       },
       {
-        "startFrame": 173,
-        "endFrame": 237,
-        "text": "animations from your references with your coding"
+        "startFrame": 254,
+        "endFrame": 320,
+        "text": "single figure can be hard to follow."
       },
       {
-        "startFrame": 237,
-        "endFrame": 263,
-        "text": "agent."
+        "startFrame": 320,
+        "endFrame": 393,
+        "text": "Imagine Science is an open-source tool that"
       },
       {
-        "startFrame": 263,
-        "endFrame": 318,
-        "text": "Start by building the scene, then show"
+        "startFrame": 393,
+        "endFrame": 458,
+        "text": "uses AI agents to turn research into"
       },
       {
-        "startFrame": 318,
-        "endFrame": 374,
-        "text": "how the sequence unfolds."
+        "startFrame": 458,
+        "endFrame": 532,
+        "text": "animations more people can understand."
       },
       {
-        "startFrame": 374,
-        "endFrame": 427,
-        "text": "Slow the critical step so the audience"
+        "startFrame": 532,
+        "endFrame": 578,
+        "text": "It starts with a paper."
       },
       {
-        "startFrame": 427,
-        "endFrame": 483,
-        "text": "can follow it, and match the narration"
+        "startFrame": 578,
+        "endFrame": 635,
+        "text": "The agent traces each claim back to"
       },
       {
-        "startFrame": 483,
-        "endFrame": 517,
-        "text": "to the action."
+        "startFrame": 635,
+        "endFrame": 704,
+        "text": "its source, then builds a storyline around"
       },
       {
-        "startFrame": 517,
-        "endFrame": 597,
-        "text": "As your explanation develops, adjust the timing,"
+        "startFrame": 704,
+        "endFrame": 760,
+        "text": "what the audience needs to see."
       },
       {
-        "startFrame": 597,
-        "endFrame": 662,
-        "text": "refine the labels, and keep shaping the"
+        "startFrame": 760,
+        "endFrame": 836,
+        "text": "The agent writes the scene in TypeScript."
       },
       {
-        "startFrame": 662,
-        "endFrame": 719,
-        "text": "same editable project."
+        "startFrame": 848,
+        "endFrame": 915,
+        "text": "React describes the parts of the figure."
       },
       {
-        "startFrame": 719,
-        "endFrame": 792,
-        "text": "Explore Imagine Science on GitHub."
+        "startFrame": 915,
+        "endFrame": 993,
+        "text": "SVG draws the shapes and labels."
+      },
+      {
+        "startFrame": 993,
+        "endFrame": 1056,
+        "text": "Remotion controls how they change from one"
+      },
+      {
+        "startFrame": 1056,
+        "endFrame": 1097,
+        "text": "frame to the next."
+      },
+      {
+        "startFrame": 1097,
+        "endFrame": 1180,
+        "text": "Next, Kokoro generates one continuous voice"
+      },
+      {
+        "startFrame": 1180,
+        "endFrame": 1203,
+        "text": "track."
+      },
+      {
+        "startFrame": 1203,
+        "endFrame": 1254,
+        "text": "The timing of each phrase tells the"
+      },
+      {
+        "startFrame": 1254,
+        "endFrame": 1310,
+        "text": "agent where to place the captions and"
+      },
+      {
+        "startFrame": 1310,
+        "endFrame": 1356,
+        "text": "when to cue the motion."
+      },
+      {
+        "startFrame": 1356,
+        "endFrame": 1423,
+        "text": "When the narrator says the particles spread,"
+      },
+      {
+        "startFrame": 1423,
+        "endFrame": 1490,
+        "text": "the cloud opens up on screen."
+      },
+      {
+        "startFrame": 1490,
+        "endFrame": 1558,
+        "text": "Once the timing is set, Remotion renders"
+      },
+      {
+        "startFrame": 1558,
+        "endFrame": 1608,
+        "text": "the frames in a browser."
+      },
+      {
+        "startFrame": 1619,
+        "endFrame": 1681,
+        "text": "FFmpeg stitches them together and adds the"
+      },
+      {
+        "startFrame": 1681,
+        "endFrame": 1763,
+        "text": "narration to create the final MP4."
+      },
+      {
+        "startFrame": 1763,
+        "endFrame": 1821,
+        "text": "Then the agent checks the export."
+      },
+      {
+        "startFrame": 1821,
+        "endFrame": 1894,
+        "text": "It verifies the frame count, dimensions, and"
+      },
+      {
+        "startFrame": 1894,
+        "endFrame": 1967,
+        "text": "audio track, then compares individual frames"
+      },
+      {
+        "startFrame": 1967,
+        "endFrame": 2000,
+        "text": "with the source."
+      },
+      {
+        "startFrame": 2000,
+        "endFrame": 2041,
+        "text": "Watching the film all the way through"
+      },
+      {
+        "startFrame": 2041,
+        "endFrame": 2118,
+        "text": "reveals things a still frame can miss."
+      },
+      {
+        "startFrame": 2118,
+        "endFrame": 2171,
+        "text": "If a label arrives late, or a"
+      },
+      {
+        "startFrame": 2171,
+        "endFrame": 2226,
+        "text": "movement suggests something the paper doesn\u2019t"
+      },
+      {
+        "startFrame": 2226,
+        "endFrame": 2294,
+        "text": "support, the agent changes the scene in"
+      },
+      {
+        "startFrame": 2294,
+        "endFrame": 2352,
+        "text": "code and renders it again."
+      },
+      {
+        "startFrame": 2352,
+        "endFrame": 2426,
+        "text": "Check out Imagine Science on GitHub."
       }
     ],
     "speechWindows": [
       {
         "startFrame": 8,
-        "endFrame": 108,
+        "endFrame": 319,
         "minRms": 0.003
       },
       {
-        "startFrame": 109,
-        "endFrame": 262,
+        "startFrame": 320,
+        "endFrame": 531,
         "minRms": 0.003
       },
       {
-        "startFrame": 263,
-        "endFrame": 516,
+        "startFrame": 532,
+        "endFrame": 759,
         "minRms": 0.003
       },
       {
-        "startFrame": 517,
-        "endFrame": 718,
+        "startFrame": 760,
+        "endFrame": 1096,
         "minRms": 0.003
       },
       {
-        "startFrame": 719,
-        "endFrame": 792,
+        "startFrame": 1097,
+        "endFrame": 1489,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 1490,
+        "endFrame": 1762,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 1763,
+        "endFrame": 2117,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 2118,
+        "endFrame": 2351,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 2352,
+        "endFrame": 2425,
         "minRms": 0.003
       }
     ]
@@ -219,20 +434,30 @@
     "extraFrames": [
       20,
       90,
-      134,
       145,
-      217,
-      301,
-      336,
-      399,
-      481,
-      514,
-      589,
-      622,
-      663,
-      744
+      632,
+      691,
+      829,
+      873,
+      940,
+      1018,
+      1170,
+      1296,
+      1343,
+      1410,
+      1572,
+      1644,
+      1696,
+      1870,
+      1894,
+      1919,
+      1953,
+      2025,
+      2149,
+      2292,
+      2339
     ],
-    "maxFrames": 80
+    "maxFrames": 120
   },
   "stationaryRegions": []
 }

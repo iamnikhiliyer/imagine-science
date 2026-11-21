@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "compositionId": "Imagine-Science",
+  "title": "Imagine Science \u2014 a moving explanation",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durationInFrames": 795,
+  "scenes": [
+    {
+      "id": "idea",
+      "title": "Help someone see the mechanism",
+      "startFrame": 0,
+      "endFrame": 109,
+      "caption": "You know how the mechanism works. Now help someone else see it."
+    },
+    {
+      "id": "toolkit",
+      "title": "From references to an editable scene",
+      "startFrame": 109,
+      "endFrame": 263,
+      "caption": "Imagine Science helps you build scientific animations from your references with your coding agent."
+    },
+    {
+      "id": "shape",
+      "title": "Build and unfold the sequence",
+      "startFrame": 263,
+      "endFrame": 517,
+      "caption": "Start by building the scene, then show how the sequence unfolds. Slow the critical step so the audience can follow it, and match the narration to the action."
+    },
+    {
+      "id": "editable",
+      "title": "Adjust timing and refine labels",
+      "startFrame": 517,
+      "endFrame": 719,
+      "caption": "As your explanation develops, adjust the timing, refine the labels, and keep shaping the same editable project."
+    },
+    {
+      "id": "close",
+      "title": "Explore Imagine Science",
+      "startFrame": 719,
+      "endFrame": 795,
+      "caption": "Explore Imagine Science on GitHub."
+    }
+  ],
+  "cues": [
+    {
+      "frame": 109,
+      "label": "Imagine Science helps"
+    },
+    {
+      "frame": 192,
+      "label": "from your references"
+    },
+    {
+      "frame": 276,
+      "label": "building the scene,"
+    },
+    {
+      "frame": 311,
+      "label": "show how"
+    },
+    {
+      "frame": 374,
+      "label": "Slow the critical"
+    },
+    {
+      "frame": 456,
+      "label": "match the narration"
+    },
+    {
+      "frame": 489,
+      "label": "action."
+    },
+    {
+      "frame": 564,
+      "label": "adjust the timing,"
+    },
+    {
+      "frame": 597,
+      "label": "refine the labels,"
+    },
+    {
+      "frame": 638,
+      "label": "keep shaping"
+    },
+    {
+      "frame": 719,
+      "label": "Explore Imagine Science"
+    }
+  ],
+  "assets": [
+    {
+      "path": "explainer/narration.flac",
+      "kind": "generated",
+      "source": "Approved continuous paragraph in production/script.json; one input to local Kokoro-82M, kokoro 0.9.4, af_heart voice, speed 1.05, English; native model pauses only; synthesis word timings in src/explainer/words.json",
+      "license": "Original script MIT; synthesis using Apache-2.0 Kokoro-82M model",
+      "sha256": "2581df97551c6a18a06e061872258ca7c44f21479e8b84494de4701ee2745bb3"
+    },
+    {
+      "path": "explainer/starter-preview.png",
+      "kind": "illustrative",
+      "source": "Imagine Science v0.1.0 docs/preview.png: original schematic diffusion starter",
+      "license": "MIT",
+      "sha256": "09fc5b3a99234fc3a9bca71c9cba8570ae7c22fd0caeed53b33c1d39b6c4dff5"
+    },
+    {
+      "path": "explainer/archive/narration.flac",
+      "kind": "generated",
+      "source": "Earlier production narration preserved for Presentation-Draft comparison; original script and alignment retained in src/explainer/archive",
+      "license": "Original script MIT; synthesis using Apache-2.0 Kokoro-82M model",
+      "sha256": "f8193135e06f5f9a54a1f5e86563933715eae9a0ba2b7b918cb79f238f1e93dd"
+    }
+  ],
+  "audio": {
+    "mode": "narrated",
+    "path": "explainer/narration.flac",
+    "captions": [
+      {
+        "startFrame": 8,
+        "endFrame": 60,
+        "text": "You know how the mechanism works."
+      },
+      {
+        "startFrame": 60,
+        "endFrame": 109,
+        "text": "Now help someone else see it."
+      },
+      {
+        "startFrame": 109,
+        "endFrame": 173,
+        "text": "Imagine Science helps you build scientific"
+      },
+      {
+        "startFrame": 173,
+        "endFrame": 237,
+        "text": "animations from your references with your coding"
+      },
+      {
+        "startFrame": 237,
+        "endFrame": 263,
+        "text": "agent."
+      },
+      {
+        "startFrame": 263,
+        "endFrame": 318,
+        "text": "Start by building the scene, then show"
+      },
+      {
+        "startFrame": 318,
+        "endFrame": 374,
+        "text": "how the sequence unfolds."
+      },
+      {
+        "startFrame": 374,
+        "endFrame": 427,
+        "text": "Slow the critical step so the audience"
+      },
+      {
+        "startFrame": 427,
+        "endFrame": 483,
+        "text": "can follow it, and match the narration"
+      },
+      {
+        "startFrame": 483,
+        "endFrame": 517,
+        "text": "to the action."
+      },
+      {
+        "startFrame": 517,
+        "endFrame": 597,
+        "text": "As your explanation develops, adjust the timing,"
+      },
+      {
+        "startFrame": 597,
+        "endFrame": 662,
+        "text": "refine the labels, and keep shaping the"
+      },
+      {
+        "startFrame": 662,
+        "endFrame": 719,
+        "text": "same editable project."
+      },
+      {
+        "startFrame": 719,
+        "endFrame": 792,
+        "text": "Explore Imagine Science on GitHub."
+      }
+    ],
+    "speechWindows": [
+      {
+        "startFrame": 8,
+        "endFrame": 108,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 109,
+        "endFrame": 262,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 263,
+        "endFrame": 516,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 517,
+        "endFrame": 718,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 719,
+        "endFrame": 792,
+        "minRms": 0.003
+      }
+    ]
+  },
+  "review": {
+    "extraFrames": [
+      20,
+      90,
+      134,
+      145,
+      217,
+      301,
+      336,
+      399,
+      481,
+      514,
+      589,
+      622,
+      663,
+      744
+    ],
+    "maxFrames": 80
+  },
+  "stationaryRegions": []
+}

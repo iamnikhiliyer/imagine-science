@@ -1,5 +1,5 @@
-import waveform from '../waveform.json';
-import project from '../../../film.project.json';
+import waveform from './waveform.json';
+import project from './project.json';
 import { mix, smooth } from './motion';
 
 export function Inputs({ frame, opacity, progress }: { frame: number; opacity: number; progress: number }) {

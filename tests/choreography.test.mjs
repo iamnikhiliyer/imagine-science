@@ -5,10 +5,12 @@ import { events, processState, signalState } from '../src/explainer/process/moti
 
 const project = JSON.parse(readFileSync(new URL('../film.project.json', import.meta.url)));
 const words = JSON.parse(readFileSync(new URL('../src/explainer/words.json', import.meta.url)));
-const wordStart = text => Math.ceil(words.find(w => w.text === text).startMs * .03);
+const processProject = JSON.parse(readFileSync(new URL('../src/explainer/process/project.json', import.meta.url)));
+const processWords = JSON.parse(readFileSync(new URL('../src/explainer/process/words.json', import.meta.url)));
+const wordStart = text => Math.ceil(processWords.find(w => w.text === text).startMs * .03);
 
 test('camera and hero remain continuous through every narration boundary', () => {
-  for (let frame = 1; frame < project.durationInFrames; frame++) {
+  for (let frame = 1; frame < processProject.durationInFrames; frame++) {
     const previous = processState(frame - 1), current = processState(frame);
     for (const [key, limit] of [['x', 12], ['y', 12], ['scale', .06], ['rx', 3], ['ry', 3], ['rz', 3]]) {
       assert.ok(Number.isFinite(current.camera[key]));
@@ -18,7 +20,7 @@ test('camera and hero remain continuous through every narration boundary', () =>
 });
 
 test('the same specimen survives input, assembly, inspection, and the closing', () => {
-  for (const frame of [...project.scenes.map(s => s.startFrame), project.durationInFrames - 1]) {
+  for (const frame of [...processProject.scenes.map(s => s.startFrame), processProject.durationInFrames - 1]) {
     const state = processState(frame);
     assert.equal(state.heroOpacity, 1);
     assert.ok(state.heroScale > .5);
@@ -40,8 +42,8 @@ test('inspection holds, the timing adjustment scrubs, and label refinement holds
 });
 
 test('the closing keeps the animation alive while revealing its identity', () => {
-  assert.equal(processState(project.durationInFrames - 30).brand, 1);
-  assert.ok(processState(project.durationInFrames - 1).sampleFrame > processState(project.durationInFrames - 30).sampleFrame);
+  assert.equal(processState(processProject.durationInFrames - 30).brand, 1);
+  assert.ok(processState(processProject.durationInFrames - 1).sampleFrame > processState(processProject.durationInFrames - 30).sampleFrame);
 });
 
 test('the visible slowdown follows the delivered word slow and reaches quarter speed', () => {

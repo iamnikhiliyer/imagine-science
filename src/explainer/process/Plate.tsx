@@ -1,8 +1,8 @@
 import type { CSSProperties } from 'react';
 import { Network } from './Network';
 import { events, mix, smooth } from './motion';
-import waveform from '../waveform.json';
-import project from '../../../film.project.json';
+import waveform from './waveform.json';
+import project from './project.json';
 
 const fill: CSSProperties = { position: 'absolute', inset: 0, borderRadius: 20 };
 

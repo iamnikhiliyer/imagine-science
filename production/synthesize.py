@@ -44,7 +44,10 @@ def main():
     # concatenate its output directly, preserving native pauses and token offsets.
     pieces, words = [], []
     samples = 0
-    results = pipeline(script['text'], voice=str(args.model_dir / 'voice.pt'), speed=1.05, split_pattern=None)
+    spoken = script['text']
+    for name, pronunciation in {'FFmpeg': 'ˌɛfˌɛfmˈpɛɡ', 'SVG': 'ˌɛsvˌidʒˈi', 'Remotion': 'ɹɪmˈOʃən', 'Kokoro': 'kˈOkəɹO', 'TypeScript': 'tˈYpskɹɪpt'}.items():
+        spoken = spoken.replace(name, f'[{name}](/{pronunciation}/)')
+    results = pipeline(spoken, voice=str(args.model_dir / 'voice.pt'), speed=1.05, split_pattern=None)
     for result in results:
         audio = result.audio.numpy()
         previous_space = True
@@ -95,8 +98,7 @@ def main():
             captions.append(caption(group)); group = []
     if group:
         captions.append(caption(group))
-    cue_phrases = ['Imagine Science helps', 'from your references', 'building the scene,', 'show how', 'Slow the critical',
-                   'match the narration', 'action.', 'adjust the timing,', 'refine the labels,', 'keep shaping', 'Explore Imagine Science']
+    cue_phrases = script['cues']
     cues = [{'frame': math.ceil(words[anchor_index(phrase)]['startMs'] * FPS / 1000), 'label': phrase} for phrase in cue_phrases]
     previous = json.loads((ROOT / 'film.project.json').read_text())
     assets = [a for a in previous['assets'] if a['path'] != 'explainer/narration.flac']
@@ -106,7 +108,7 @@ def main():
     manifest = {'schemaVersion': 1, 'compositionId': 'Imagine-Science', 'title': 'Imagine Science — a moving explanation',
         'width': 1920, 'height': 1080, 'fps': FPS, 'durationInFrames': duration, 'scenes': scenes, 'cues': cues,
         'assets': assets, 'audio': {'mode': 'narrated', 'path': 'explainer/narration.flac', 'captions': captions, 'speechWindows': windows},
-        'review': {'extraFrames': sorted(set([20, 90, 145] + [min(duration-1,c['frame']+25) for c in cues])), 'maxFrames': 80},
+        'review': {'extraFrames': sorted(set([20, 90, 145] + [min(duration-1,c['frame']+25) for c in cues])), 'maxFrames': 120},
         'stationaryRegions': []}
     save('film.project.json', manifest)
     print(f'Total: {duration / FPS:.2f}s / {duration} frames, {len(pieces)} model chunk(s), {padding} tail samples', flush=True)
