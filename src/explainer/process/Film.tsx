@@ -4,14 +4,23 @@ import project from '../../../film.project.json';
 import { Narration } from '../Narration';
 import { Inputs } from './Inputs';
 import { Plate } from './Plate';
-import { processState, smooth } from './motion';
+import { events, processState, smooth } from './motion';
 
 export function ProcessVisual({ frame }: { frame: number }) {
   const state = processState(frame);
   const { camera } = state;
-  const intro = smooth(frame,33,60)*(1-smooth(frame,92,114));
-  const action = frame<324?'Bring the evidence.':frame<511?'Build the explanation.':'Inspect. Refine. Keep control.';
-  const actionOpacity = frame<324?smooth(frame,140,165)*(1-smooth(frame,290,317)):frame<511?smooth(frame,343,368)*(1-smooth(frame,462,489)):smooth(frame,528,549)*(1-smooth(frame,650,678));
+  const actionBeats = [
+    { frame: 180, text: 'Imagine Science' },
+    { frame: events.sources, text: 'Start from your references.' },
+    { frame: events.sequence, text: 'Show the sequence.' },
+    { frame: events.slow, text: 'Slow the critical step.' },
+    { frame: 510, text: 'Match narration to action.' },
+    { frame: 695, text: 'Keep the scene editable.' },
+  ];
+  const actionIndex = actionBeats.findIndex((beat,i)=>frame>=beat.frame && frame<(actionBeats[i+1]?.frame ?? events.closing));
+  const action = actionBeats[actionIndex];
+  const actionOpacity = action ? smooth(frame,action.frame,action.frame+9)*(1-smooth(frame,(actionBeats[actionIndex+1]?.frame ?? events.closing)-5,actionBeats[actionIndex+1]?.frame ?? events.closing)) : 0;
+  const slowVisible = smooth(frame,events.slow,events.slow+12)*(1-smooth(frame,events.freeze-8,events.freeze));
   return <AbsoluteFill style={{ background: '#09191f', fontFamily: 'Manrope Variable,Arial,sans-serif', overflow: 'hidden' }}>
     <svg width="1920" height="1080" style={{ position: 'absolute', inset: 0 }}>
       <defs>
@@ -27,20 +36,24 @@ export function ProcessVisual({ frame }: { frame: number }) {
     <div style={{ position: 'absolute', inset: 0, perspective: 1800, perspectiveOrigin: '50% 45%' }}>
       <div style={{ position: 'absolute', left: 0, top: 0, width: 0, height: 0, transformStyle: 'preserve-3d', transform: `translate3d(${camera.x}px,${camera.y}px,0) scale(${camera.scale}) rotateX(${camera.rx}deg) rotateY(${camera.ry}deg) rotateZ(${camera.rz}deg)` }}>
         <Inputs frame={frame} opacity={state.sources} progress={state.input}/>
-        {state.strip>0 && [-2,-1,1,2].map(i=><Plate key={i} frame={frame} sampleFrame={520+i*17} scale={.63} x={i*710*state.strip} opacity={state.strip} miniature />)}
+        {state.strip>0 && [-2,-1,1,2].map(i=><Plate key={i} frame={frame} sampleFrame={72+i*17} scale={.63} x={i*710*state.strip} opacity={state.strip} miniature />)}
         {state.strip>0 && <svg width="3700" height="650" style={{ position: 'absolute', left: -1850, top: -325, opacity: state.strip, transform: 'translateZ(-25px)' }}>
           <path d="M0 95H3700M0 555H3700" stroke="#779b89" strokeWidth="2"/>
           {Array.from({length:68},(_,i)=><g key={i}><rect x={i*55+8} y="106" width="25" height="15" rx="3" fill="#b4c9ab" opacity=".65"/><rect x={i*55+8} y="529" width="25" height="15" rx="3" fill="#b4c9ab" opacity=".65"/></g>)}
         </svg>}
-        <Plate frame={frame} sampleFrame={state.sampleFrame} layers={state.layers} wire={state.wire} scale={state.heroScale} inspect={state.inspect} correction={state.correction}/>
+        <Plate frame={frame} sampleFrame={state.sampleFrame} layers={state.layers} wire={state.wire} scale={state.heroScale} inspect={state.inspect} correction={state.correction} cue={state.cue} narrationVisible={slowVisible}/>
         {state.layers>.01 && <div style={{ position: 'absolute', left: 560, top: 80, transform: 'translateZ(110px)', color: '#a6cbb6', fontSize: 23, opacity: state.layers, borderLeft: '1px solid #8ab79f', padding: '8px 16px', whiteSpace: 'nowrap' }}>Source, geometry, timing.<br/><span style={{fontSize:17,color:'#789f8e'}}>Independently editable.</span></div>}
       </div>
     </div>
-    <div style={{ position: 'absolute', left: 120, top: 135, color: '#d6e6cf', fontSize: 41, letterSpacing: -.8, opacity: intro }}>Give your science a moving explanation.</div>
-    <div style={{ position: 'absolute', left: 120, top: 118, color: '#c1d6c4', fontSize: 36, letterSpacing: -.7, opacity: actionOpacity }}>{action}</div>
+    <div style={{ position: 'absolute', left: 120, top: 100, color: '#9bbbab', fontSize: 21, letterSpacing: 2, opacity: 1-smooth(frame,155,180) }}>ILLUSTRATIVE SEQUENCE</div>
+    <div style={{ position: 'absolute', left: 120, top: 118, color: '#c1d6c4', fontSize: 36, letterSpacing: -.7, opacity: actionOpacity }}>{action?.text}</div>
+    <div style={{ position: 'absolute', right: 120, top: 103, textAlign: 'right', color: '#d4e3c9', opacity: slowVisible }}>
+      <div style={{ fontSize: 16, letterSpacing: 2, color: '#9ab9a6' }}>PLAYBACK</div>
+      <div style={{ fontSize: 38, fontVariantNumeric: 'tabular-nums' }}>{state.playbackRate.toFixed(2)}×</div>
+    </div>
     <div style={{ position: 'absolute', left: 120, top: 300, opacity: state.brand, translate: `${(1-state.brand)*-35}px 0` }}>
       <div style={{ fontFamily: 'Georgia,serif', color: '#eff0df', fontSize: 142, letterSpacing: -6, lineHeight: 1.04 }}>Imagine<br/>Science</div>
-      <div style={{ color: '#8abda5', fontSize: 26, marginTop: 38 }}>A moving explanation. Yours to shape.</div>
+      <div style={{ color: '#8abda5', fontSize: 26, marginTop: 38 }}>Scientific animations. Editable source.</div>
       <div style={{ color: '#a6bbab', fontSize: 22, marginTop: 48 }}>github.com/iamnikhiliyer/imagine-science</div>
     </div>
   </AbsoluteFill>;
@@ -51,7 +64,7 @@ export function ProcessFilm() {
   return <AbsoluteFill><ProcessVisual frame={frame}/><Narration/></AbsoluteFill>;
 }
 export function IdeaShot() { return <ProcessVisual frame={useCurrentFrame()}/>; }
-export function SourceShot() { return <ProcessVisual frame={project.scenes[1].startFrame+useCurrentFrame()}/>; }
-export function ComposeShot() { return <ProcessVisual frame={project.scenes[2].startFrame+useCurrentFrame()}/>; }
-export function ReviewShot() { return <ProcessVisual frame={project.scenes[3].startFrame+useCurrentFrame()}/>; }
+export function ToolkitShot() { return <ProcessVisual frame={project.scenes[1].startFrame+useCurrentFrame()}/>; }
+export function ShapeShot() { return <ProcessVisual frame={project.scenes[2].startFrame+useCurrentFrame()}/>; }
+export function EditableShot() { return <ProcessVisual frame={project.scenes[3].startFrame+useCurrentFrame()}/>; }
 export function ClosingShot() { return <ProcessVisual frame={project.scenes[4].startFrame+useCurrentFrame()}/>; }

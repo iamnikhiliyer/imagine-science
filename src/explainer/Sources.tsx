@@ -1,6 +1,6 @@
 import { useCurrentFrame } from 'remotion';
 import { color, ease, Heading, Stage } from './design';
-import waveform from './waveform.json';
+import waveform from './archive/waveform.json';
 
 export function Sources() {
   const frame = useCurrentFrame();

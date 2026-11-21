@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "compositionId": "Imagine-Science",
+  "title": "Imagine Science \u2014 a moving explanation",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durationInFrames": 920,
+  "scenes": [
+    {
+      "id": "idea",
+      "startFrame": 0,
+      "endFrame": 109,
+      "title": "Give your science\na moving explanation.",
+      "caption": "Give your science a moving explanation."
+    },
+    {
+      "id": "sources",
+      "startFrame": 109,
+      "endFrame": 324,
+      "title": "Start with\nwhat you know.",
+      "caption": "Imagine Science brings references, diagrams, and narration into one animation workflow."
+    },
+    {
+      "id": "compose",
+      "startFrame": 324,
+      "endFrame": 511,
+      "title": "Build the scene.\nKeep the source.",
+      "caption": "An AI coding agent builds editable Remotion scenes. You control the timing."
+    },
+    {
+      "id": "review",
+      "startFrame": 511,
+      "endFrame": 683,
+      "title": "Look closely.\nMake it clearer.",
+      "caption": "Inspect important frames, refine the explanation, and check your export."
+    },
+    {
+      "id": "close",
+      "startFrame": 683,
+      "endFrame": 920,
+      "title": "Imagine Science",
+      "caption": "Traceable sources. Editable films. Your scientific judgment stays in the loop. Imagine Science."
+    }
+  ],
+  "cues": [
+    {
+      "frame": 45,
+      "label": "idea principal visual"
+    },
+    {
+      "frame": 154,
+      "label": "sources principal visual"
+    },
+    {
+      "frame": 369,
+      "label": "compose principal visual"
+    },
+    {
+      "frame": 556,
+      "label": "review principal visual"
+    },
+    {
+      "frame": 728,
+      "label": "close principal visual"
+    }
+  ],
+  "assets": [
+    {
+      "path": "explainer/archive/narration.flac",
+      "kind": "generated",
+      "source": "Original script in production/script.json; local Kokoro-82M, kokoro 0.9.4, af_heart voice, speed 1.05, English; synthesis word timings in src/explainer/words.json",
+      "license": "Original script MIT; synthesis using Apache-2.0 Kokoro-82M model",
+      "sha256": "f8193135e06f5f9a54a1f5e86563933715eae9a0ba2b7b918cb79f238f1e93dd"
+    },
+    {
+      "path": "explainer/starter-preview.png",
+      "kind": "illustrative",
+      "source": "Imagine Science v0.1.0 docs/preview.png: original schematic diffusion starter",
+      "license": "MIT",
+      "sha256": "09fc5b3a99234fc3a9bca71c9cba8570ae7c22fd0caeed53b33c1d39b6c4dff5"
+    }
+  ],
+  "audio": {
+    "mode": "narrated",
+    "path": "explainer/archive/narration.flac",
+    "captions": [
+      {
+        "startFrame": 20,
+        "endFrame": 91,
+        "text": "Give your science a moving explanation."
+      },
+      {
+        "startFrame": 130,
+        "endFrame": 228,
+        "text": "Imagine Science brings references, diagrams, and"
+      },
+      {
+        "startFrame": 228,
+        "endFrame": 306,
+        "text": "narration into one animation workflow."
+      },
+      {
+        "startFrame": 344,
+        "endFrame": 423,
+        "text": "An AI coding agent builds editable Remotion"
+      },
+      {
+        "startFrame": 423,
+        "endFrame": 447,
+        "text": "scenes."
+      },
+      {
+        "startFrame": 447,
+        "endFrame": 493,
+        "text": "You control the timing."
+      },
+      {
+        "startFrame": 532,
+        "endFrame": 597,
+        "text": "Inspect important frames, refine the"
+      },
+      {
+        "startFrame": 597,
+        "endFrame": 665,
+        "text": "explanation, and check your export."
+      },
+      {
+        "startFrame": 703,
+        "endFrame": 741,
+        "text": "Traceable sources."
+      },
+      {
+        "startFrame": 741,
+        "endFrame": 776,
+        "text": "Editable films."
+      },
+      {
+        "startFrame": 776,
+        "endFrame": 847,
+        "text": "Your scientific judgment stays in the loop."
+      },
+      {
+        "startFrame": 847,
+        "endFrame": 887,
+        "text": "Imagine Science."
+      }
+    ],
+    "speechWindows": [
+      {
+        "startFrame": 20,
+        "endFrame": 90,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 130,
+        "endFrame": 305,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 344,
+        "endFrame": 492,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 532,
+        "endFrame": 664,
+        "minRms": 0.003
+      },
+      {
+        "startFrame": 703,
+        "endFrame": 886,
+        "minRms": 0.003
+      }
+    ]
+  },
+  "review": {
+    "extraFrames": [
+      20,
+      65,
+      150,
+      215,
+      280,
+      375,
+      405,
+      455,
+      535,
+      575,
+      605,
+      645,
+      750,
+      825,
+      900
+    ],
+    "maxFrames": 80
+  },
+  "stationaryRegions": []
+}

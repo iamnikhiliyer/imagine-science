@@ -7,13 +7,16 @@ English narration with synchronized captions. Duration follows the delivered voi
 
 ## Visual contract
 
-Current direction: [revision-2.md](revision-2.md). A dark, softly lit dimensional
+Current delivery: [revision-3.md](revision-3.md), with the approved researcher-focused
+script in [script-development.md](script-development.md). Visual direction follows
+[revision-2.md](revision-2.md): a dark, softly lit dimensional
 workspace carries one persistent scientific schematic through source collection,
 layer assembly, temporal inspection, refinement, and the closing. Camera motion
 and visible state changes carry the explanation. Short Manrope action labels
 and the final serif identity support it. Keep the lower 150px clear for captions.
 
-The main animation is an original code-native schematic. The toolkit's starter
+The current film is 31.63 seconds with regenerated narration and captions. The
+main animation is an original code-native schematic. The toolkit's starter
 preview remains in the archived first draft. No fabricated product interface,
 experimental data, user counts,
 performance claims, or implied automatic scientific approval. Keep scenes readable

@@ -1,5 +1,5 @@
 import { AbsoluteFill, Series, useVideoConfig } from 'remotion';
-import project from '../../film.project.json';
+import project from './archive/project.json';
 import { Closing } from './Closing';
 import { Compose } from './Compose';
 import { Narration } from './Narration';
@@ -18,6 +18,6 @@ export function ExplainerFilm() {
       <Series.Sequence name="The review" durationInFrames={duration(3)} premountFor={fps}><Review /></Series.Sequence>
       <Series.Sequence name="Imagine Science" durationInFrames={duration(4)} premountFor={fps}><Closing /></Series.Sequence>
     </Series>
-    <Narration />
+    <Narration archive />
   </AbsoluteFill>;
 }

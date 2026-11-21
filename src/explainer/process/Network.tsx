@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import { signalState } from './motion';
 
 const cells = [
   [165, 175], [355, 110], [590, 145], [815, 180], [270, 340], [505, 290],
@@ -11,7 +12,7 @@ export function Network({ sampleFrame, layer = 'both', wire = 0, opacity = 1 }: 
   sampleFrame: number; layer?: 'traces' | 'cells' | 'both'; wire?: number; opacity?: number;
 }) {
   const id = useId().replace(/:/g, '');
-  const time = sampleFrame / 30;
+  const signal = signalState(sampleFrame);
   return <svg viewBox="0 0 1000 600" width="100%" height="100%" style={{ position: 'absolute', inset: 0, overflow: 'visible', opacity }}>
     <defs>
       <radialGradient id={`${id}-soma`}><stop stopColor="#e4f3d8"/><stop offset=".38" stopColor="#a8d3b2"/><stop offset="1" stopColor="#548d7e" stopOpacity=".25"/></radialGradient>
@@ -21,17 +22,19 @@ export function Network({ sampleFrame, layer = 'both', wire = 0, opacity = 1 }: 
       const [x1,y1] = cells[a], [x2,y2] = cells[b];
       const cx1 = x1+(x2-x1)*.42, cy1 = y1-38, cx2 = x1+(x2-x1)*.64, cy2=y2+38;
       const d = `M${x1} ${y1}C${cx1} ${cy1} ${cx2} ${cy2} ${x2} ${y2}`;
-      const progress = ((time*.52+i*.173)%1+1)%1;
+      const active = signal.active && a===signal.from && b===signal.to;
+      const progress = signal.progress;
       const px = point(x1,cx1,cx2,x2,progress), py=point(y1,cy1,cy2,y2,progress);
       return <g key={i}>
         <path d={d} stroke="#97c1ad" strokeWidth="7" opacity=".055" fill="none"/>
         <path d={d} stroke={i%4===0?'#cca88a':'#719e90'} strokeWidth={i%3===0?2:1.2} opacity={.47+wire*.25} fill="none"/>
-        <circle cx={px} cy={py} r="7" fill="#b9edd2" opacity={(1-wire)*.48} filter={`url(#${id}-bloom)`}/>
-        <circle cx={px} cy={py} r="2.6" fill={i%4===0?'#e2c59e':'#c7f5dd'} opacity={(1-wire)*.95}/>
+        {active && <><path d={d} stroke="#a8d8b9" strokeWidth="2.8" fill="none" opacity={.35*(1-wire)}/>
+        <circle cx={px} cy={py} r="12" fill="#c9f5ce" opacity={(1-wire)*.6} filter={`url(#${id}-bloom)`}/>
+        <circle cx={px} cy={py} r="4.2" fill="#f1f6d4" opacity={(1-wire)*.98}/></>}
       </g>;
     })}</g>}
     {layer !== 'traces' && <g>{cells.map(([x,y],i) => {
-      const pulse = Math.max(0, Math.sin(time*2.6-i*.88))**7;
+      const pulse = signal.arrivals.find(arrival=>arrival.node===i)?.strength ?? 0;
       return <g key={i} transform={`translate(${x} ${y}) rotate(${i*37})`}>
         <circle r={31+pulse*11} fill="#a9edc8" opacity={(.025+pulse*.09)*(1-wire)} filter={`url(#${id}-bloom)`}/>
         {[-2,-1,0,1,2].map(j => <g key={j} transform={`rotate(${j*66})`} opacity={.48+.3*pulse}>

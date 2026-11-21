@@ -1,8 +1,8 @@
 # Imagine Science — script development
 
-Status: editorial draft for researchers who might use the toolkit. This document
-does not replace the current narration, captions, or animation. Resolve the script
-and its visual argument before rebuilding production timing.
+Status: approved and implemented for researchers who might use the toolkit.
+The user approved this direction before the production narration, alignment, and
+choreography were rebuilt. Current delivery timing is in `revision-3.md`.
 
 ## What failed in the current script
 
@@ -63,7 +63,7 @@ particular draft, and writing software does not replace the editorial decisions.
 | Founder/engineering story | Better suited to a portfolio audience |
 | Researcher's explanation, demonstrated and revised | Recommended for the confirmed audience |
 
-## Proposed narration
+## Approved narration
 
 You know how the mechanism works. Now help someone else see it.
 
@@ -78,7 +78,8 @@ Explore Imagine Science on GitHub.
 
 ## Audio/visual script
 
-Timing below is a planning estimate, not final alignment.
+The shot ranges below follow the delivered voice and deliberate visual holds.
+Word-level alignment is retained in `src/explainer/words.json`.
 
 Scratch read: 54 words, 23.225 seconds including short inter-line pauses, using
 the existing local af_heart voice at speed 1.05. Individual line durations were
@@ -90,10 +91,10 @@ report are local artifacts under `out/script-development/`.
 | Approx. time | Narration | Visible action and purpose |
 | --- | --- | --- |
 | 0–6s | You know how the mechanism works. Now help someone else see it. | Begin inside a clearly labeled schematic. Follow one signal through a short, ordered path. The viewer sees an actual sequence to understand, rather than a network of simultaneous decorative pulses. |
-| 6–12s | Imagine Science helps you build scientific animations with your coding agent. | Pull back from the animation to reveal the editable scene. Identify Imagine Science here. The visual shows the output and its editable structure rather than an invented application interface. |
-| 12–23s | Start from your references. Show the sequence, slow the critical step, and match the narration to the action. | Source notes connect to the scene. Replay the same critical moment more slowly; align its spoken cue with the visible event. This is the central demonstration of control. Use the source-sheet and layered-scene motifs only where they explain that control. |
-| 23–27s | Keep the scene editable as your explanation develops. | Reuse the same scene after a deliberate correction. Briefly connect it to its actual source/timing files. Show that the edited state persists. |
-| 27–31s | Explore Imagine Science on GitHub. | Resolve to the identity and legible repository address while the animation continues. |
+| 6–12.17s | Imagine Science helps you build scientific animations with your coding agent. | Pull back from the animation to reveal the editable scene. Identify Imagine Science and separate its trace/cell layers to show the editable structure. |
+| 12.17–23.17s | Start from your references. Show the sequence, slow the critical step, and match the narration to the action. | Source notes connect to the scene. Replay the sequence, slow the signal to quarter speed, and align a cell arrival to the spoken word "action." The actual narration waveform carries the cue marker. |
+| 23.17–27.63s | Keep the scene editable as your explanation develops. | Hold the same scene while an annotation is moved clear of the cell. Retain the changed annotation when movement resumes. |
+| 27.63–31.63s | Explore Imagine Science on GitHub. | Resolve to the identity and legible repository address while the animation continues. |
 
 ## Editorial and evidence checks
 
@@ -108,6 +109,6 @@ report are local artifacts under `out/script-development/`.
   or novelty over other tools are made.
 - The ending gives one clear next action.
 
-This is a proposed direction for editorial review, not a claim that the wording
-or timing is final. New voice alignment and animation changes follow the settled
-copy, not the old frame schedule.
+The production wording is the approved text above. The final audio includes
+visual holds beyond the scratch read. Sources and timing are retained alongside
+the editable scene.

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Freeze, useCurrentFrame } from 'remotion';
-import project from '../../film.project.json';
+import project from './archive/project.json';
 import { Compose } from './Compose';
 import { color, ease, Heading, Stage } from './design';
 import { Opening } from './Opening';

@@ -1,7 +1,32 @@
 [
-  { "id": "idea", "title": "Give your science\na moving explanation.", "text": "Give your science a moving explanation." },
-  { "id": "sources", "title": "Start with\nwhat you know.", "text": "Imagine Science brings references, diagrams, and narration into one animation workflow." },
-  { "id": "compose", "title": "Build the scene.\nKeep the source.", "text": "An AI coding agent builds editable Remotion scenes. You control the timing." },
-  { "id": "review", "title": "Look closely.\nMake it clearer.", "text": "Inspect important frames, refine the explanation, and check your export." },
-  { "id": "close", "title": "Imagine Science", "text": "Traceable sources. Editable films. Your scientific judgment stays in the loop. Imagine Science." }
+  {
+    "id": "idea",
+    "title": "Help someone see the mechanism",
+    "text": "You know how the mechanism works. Now help someone else see it.",
+    "minDurationFrames": 180
+  },
+  {
+    "id": "toolkit",
+    "title": "Build with your coding agent",
+    "text": "Imagine Science helps you build scientific animations with your coding agent.",
+    "minDurationFrames": 180
+  },
+  {
+    "id": "shape",
+    "title": "Shape the explanation",
+    "text": "Start from your references. Show the sequence, slow the critical step, and match the narration to the action.",
+    "minDurationFrames": 330
+  },
+  {
+    "id": "editable",
+    "title": "Keep the project editable",
+    "text": "Keep the scene editable as your explanation develops.",
+    "minDurationFrames": 120
+  },
+  {
+    "id": "close",
+    "title": "Explore Imagine Science",
+    "text": "Explore Imagine Science on GitHub.",
+    "minDurationFrames": 120
+  }
 ]

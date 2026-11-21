@@ -36,8 +36,7 @@ def main():
         audio = result.audio.numpy()
         lead = 12
         duration = lead + math.ceil(len(audio) / SR * FPS) + 15
-        if scene['id'] == 'close':
-            duration += 15
+        duration = max(duration, scene.get('minDurationFrames', duration))
         chunk = np.zeros(duration * SR // FPS, dtype=np.float32)
         offset = lead * SR // FPS
         chunk[offset:offset + len(audio)] = audio

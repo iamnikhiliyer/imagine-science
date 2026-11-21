@@ -1,0 +1,366 @@
+[
+  {
+    "text": "Give",
+    "startMs": 650,
+    "endMs": 788,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "your",
+    "startMs": 788,
+    "endMs": 938,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "science",
+    "startMs": 938,
+    "endMs": 1425,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a",
+    "startMs": 1425,
+    "endMs": 1538,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "moving",
+    "startMs": 1538,
+    "endMs": 1862,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "explanation.",
+    "startMs": 1862,
+    "endMs": 3025,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Imagine",
+    "startMs": 4308,
+    "endMs": 4771,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Science",
+    "startMs": 4771,
+    "endMs": 5246,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "brings",
+    "startMs": 5246,
+    "endMs": 5583,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "references,",
+    "startMs": 5583,
+    "endMs": 6583,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "diagrams,",
+    "startMs": 6583,
+    "endMs": 7483,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 7483,
+    "endMs": 7596,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "narration",
+    "startMs": 7596,
+    "endMs": 8208,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "into",
+    "startMs": 8208,
+    "endMs": 8496,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "one",
+    "startMs": 8496,
+    "endMs": 8758,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "animation",
+    "startMs": 8758,
+    "endMs": 9308,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "workflow.",
+    "startMs": 9308,
+    "endMs": 10183,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "An",
+    "startMs": 11450,
+    "endMs": 11588,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "AI",
+    "startMs": 11588,
+    "endMs": 12000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "coding",
+    "startMs": 12000,
+    "endMs": 12438,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "agent",
+    "startMs": 12438,
+    "endMs": 12850,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "builds",
+    "startMs": 12850,
+    "endMs": 13188,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "editable",
+    "startMs": 13188,
+    "endMs": 13625,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Remotion",
+    "startMs": 13625,
+    "endMs": 14100,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "scenes.",
+    "startMs": 14100,
+    "endMs": 14900,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "You",
+    "startMs": 14900,
+    "endMs": 15025,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "control",
+    "startMs": 15025,
+    "endMs": 15488,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 15488,
+    "endMs": 15575,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "timing.",
+    "startMs": 15575,
+    "endMs": 16425,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Inspect",
+    "startMs": 17708,
+    "endMs": 18183,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "important",
+    "startMs": 18183,
+    "endMs": 18608,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "frames,",
+    "startMs": 18608,
+    "endMs": 19358,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "refine",
+    "startMs": 19358,
+    "endMs": 19796,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 19796,
+    "endMs": 19871,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "explanation,",
+    "startMs": 19871,
+    "endMs": 20733,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and",
+    "startMs": 20733,
+    "endMs": 20871,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "check",
+    "startMs": 20871,
+    "endMs": 21121,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "your",
+    "startMs": 21121,
+    "endMs": 21233,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "export.",
+    "startMs": 21233,
+    "endMs": 22158,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Traceable",
+    "startMs": 23417,
+    "endMs": 23892,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "sources.",
+    "startMs": 23892,
+    "endMs": 24692,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Editable",
+    "startMs": 24692,
+    "endMs": 25154,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "films.",
+    "startMs": 25154,
+    "endMs": 25842,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Your",
+    "startMs": 25842,
+    "endMs": 26004,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "scientific",
+    "startMs": 26004,
+    "endMs": 26592,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "judgment",
+    "startMs": 26592,
+    "endMs": 27029,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "stays",
+    "startMs": 27029,
+    "endMs": 27404,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "in",
+    "startMs": 27404,
+    "endMs": 27479,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the",
+    "startMs": 27479,
+    "endMs": 27567,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "loop.",
+    "startMs": 27567,
+    "endMs": 28204,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Imagine",
+    "startMs": 28204,
+    "endMs": 28704,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Science.",
+    "startMs": 28704,
+    "endMs": 29542,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

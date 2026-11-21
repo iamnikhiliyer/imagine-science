@@ -1,68 +1,84 @@
 {
   "schemaVersion": 1,
   "compositionId": "Imagine-Science",
-  "title": "Imagine Science — a moving explanation",
+  "title": "Imagine Science \u2014 a moving explanation",
   "width": 1920,
   "height": 1080,
   "fps": 30,
-  "durationInFrames": 920,
+  "durationInFrames": 949,
   "scenes": [
     {
       "id": "idea",
       "startFrame": 0,
-      "endFrame": 109,
-      "title": "Give your science\na moving explanation.",
-      "caption": "Give your science a moving explanation."
+      "endFrame": 180,
+      "title": "Help someone see the mechanism",
+      "caption": "You know how the mechanism works. Now help someone else see it."
     },
     {
-      "id": "sources",
-      "startFrame": 109,
-      "endFrame": 324,
-      "title": "Start with\nwhat you know.",
-      "caption": "Imagine Science brings references, diagrams, and narration into one animation workflow."
+      "id": "toolkit",
+      "startFrame": 180,
+      "endFrame": 365,
+      "title": "Build with your coding agent",
+      "caption": "Imagine Science helps you build scientific animations with your coding agent."
     },
     {
-      "id": "compose",
-      "startFrame": 324,
-      "endFrame": 511,
-      "title": "Build the scene.\nKeep the source.",
-      "caption": "An AI coding agent builds editable Remotion scenes. You control the timing."
+      "id": "shape",
+      "startFrame": 365,
+      "endFrame": 695,
+      "title": "Shape the explanation",
+      "caption": "Start from your references. Show the sequence, slow the critical step, and match the narration to the action."
     },
     {
-      "id": "review",
-      "startFrame": 511,
-      "endFrame": 683,
-      "title": "Look closely.\nMake it clearer.",
-      "caption": "Inspect important frames, refine the explanation, and check your export."
+      "id": "editable",
+      "startFrame": 695,
+      "endFrame": 829,
+      "title": "Keep the project editable",
+      "caption": "Keep the scene editable as your explanation develops."
     },
     {
       "id": "close",
-      "startFrame": 683,
-      "endFrame": 920,
-      "title": "Imagine Science",
-      "caption": "Traceable sources. Editable films. Your scientific judgment stays in the loop. Imagine Science."
+      "startFrame": 829,
+      "endFrame": 949,
+      "title": "Explore Imagine Science",
+      "caption": "Explore Imagine Science on GitHub."
     }
   ],
   "cues": [
     {
-      "frame": 45,
-      "label": "idea principal visual"
+      "frame": 36,
+      "label": "Signal reaches the next cell"
     },
     {
-      "frame": 154,
-      "label": "sources principal visual"
+      "frame": 72,
+      "label": "Ordered downstream response"
     },
     {
-      "frame": 369,
-      "label": "compose principal visual"
+      "frame": 108,
+      "label": "Opening sequence completes"
     },
     {
-      "frame": 556,
-      "label": "review principal visual"
+      "frame": 249,
+      "label": "Editable layers build"
     },
     {
-      "frame": 728,
-      "label": "close principal visual"
+      "frame": 434,
+      "label": "Show the sequence"
+    },
+    {
+      "frame": 468,
+      "label": "Slow begins in narration"
+    },
+    {
+      "frame": 546,
+      "label": "Signal arrival on spoken action"
+    },
+    {
+      "frame": 735,
+      "label": "Editable scene correction"
+    },
+    {
+      "frame": 849,
+      "label": "GitHub invitation"
     }
   ],
   "assets": [
@@ -71,7 +87,7 @@
       "kind": "generated",
       "source": "Original script in production/script.json; local Kokoro-82M, kokoro 0.9.4, af_heart voice, speed 1.05, English; synthesis word timings in src/explainer/words.json",
       "license": "Original script MIT; synthesis using Apache-2.0 Kokoro-82M model",
-      "sha256": "f8193135e06f5f9a54a1f5e86563933715eae9a0ba2b7b918cb79f238f1e93dd"
+      "sha256": "a3e54d689adc008d1f3b0043d2567b8eccd35721ae7860e03f1c778986a2ba6c"
     },
     {
       "path": "explainer/starter-preview.png",
@@ -79,6 +95,13 @@
       "source": "Imagine Science v0.1.0 docs/preview.png: original schematic diffusion starter",
       "license": "MIT",
       "sha256": "09fc5b3a99234fc3a9bca71c9cba8570ae7c22fd0caeed53b33c1d39b6c4dff5"
+    },
+    {
+      "path": "explainer/archive/narration.flac",
+      "kind": "generated",
+      "source": "Earlier production narration preserved for Presentation-Draft comparison; original script and alignment retained in src/explainer/archive",
+      "license": "Original script MIT; synthesis using Apache-2.0 Kokoro-82M model",
+      "sha256": "f8193135e06f5f9a54a1f5e86563933715eae9a0ba2b7b918cb79f238f1e93dd"
     }
   ],
   "audio": {
@@ -86,90 +109,80 @@
     "path": "explainer/narration.flac",
     "captions": [
       {
-        "startFrame": 20,
-        "endFrame": 91,
-        "text": "Give your science a moving explanation."
+        "startFrame": 21,
+        "endFrame": 74,
+        "text": "You know how the mechanism works."
       },
       {
-        "startFrame": 130,
-        "endFrame": 228,
-        "text": "Imagine Science brings references, diagrams, and"
+        "startFrame": 74,
+        "endFrame": 123,
+        "text": "Now help someone else see it."
       },
       {
-        "startFrame": 228,
-        "endFrame": 306,
-        "text": "narration into one animation workflow."
+        "startFrame": 201,
+        "endFrame": 275,
+        "text": "Imagine Science helps you build scientific"
       },
       {
-        "startFrame": 344,
-        "endFrame": 423,
-        "text": "An AI coding agent builds editable Remotion"
+        "startFrame": 275,
+        "endFrame": 347,
+        "text": "animations with your coding agent."
       },
       {
-        "startFrame": 423,
-        "endFrame": 447,
-        "text": "scenes."
+        "startFrame": 385,
+        "endFrame": 434,
+        "text": "Start from your references."
       },
       {
-        "startFrame": 447,
-        "endFrame": 493,
-        "text": "You control the timing."
+        "startFrame": 434,
+        "endFrame": 507,
+        "text": "Show the sequence, slow the critical step,"
       },
       {
-        "startFrame": 532,
-        "endFrame": 597,
-        "text": "Inspect important frames, refine the"
+        "startFrame": 507,
+        "endFrame": 571,
+        "text": "and match the narration to the action."
       },
       {
-        "startFrame": 597,
-        "endFrame": 665,
-        "text": "explanation, and check your export."
+        "startFrame": 715,
+        "endFrame": 783,
+        "text": "Keep the scene editable as your explanation"
       },
       {
-        "startFrame": 703,
-        "endFrame": 741,
-        "text": "Traceable sources."
+        "startFrame": 783,
+        "endFrame": 811,
+        "text": "develops."
       },
       {
-        "startFrame": 741,
-        "endFrame": 776,
-        "text": "Editable films."
-      },
-      {
-        "startFrame": 776,
-        "endFrame": 847,
-        "text": "Your scientific judgment stays in the loop."
-      },
-      {
-        "startFrame": 847,
-        "endFrame": 887,
-        "text": "Imagine Science."
+        "startFrame": 849,
+        "endFrame": 917,
+        "text": "Explore Imagine Science on GitHub."
       }
     ],
     "speechWindows": [
       {
-        "startFrame": 20,
-        "endFrame": 90,
+        "startFrame": 21,
+        "endFrame": 122,
         "minRms": 0.003
       },
       {
-        "startFrame": 130,
-        "endFrame": 305,
+        "startFrame": 201,
+        "endFrame": 346,
         "minRms": 0.003
       },
       {
-        "startFrame": 344,
-        "endFrame": 492,
+        "startFrame": 385,
+        "endFrame": 570,
         "minRms": 0.003
       },
       {
-        "startFrame": 532,
-        "endFrame": 664,
+        "startFrame": 715,
+        "endFrame": 810,
         "minRms": 0.003
       },
       {
-        "startFrame": 703,
-        "endFrame": 886,
+        "startFrame": 849,
+        "endFrame": 916,
         "minRms": 0.003
       }
     ]
@@ -177,20 +190,23 @@
   "review": {
     "extraFrames": [
       20,
-      65,
-      150,
-      215,
-      280,
-      375,
-      405,
+      120,
+      145,
+      210,
+      295,
+      350,
+      400,
       455,
-      535,
-      575,
-      605,
-      645,
+      486,
+      520,
+      560,
+      620,
+      690,
       750,
-      825,
-      900
+      790,
+      830,
+      880,
+      930
     ],
     "maxFrames": 80
   },
