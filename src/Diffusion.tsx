@@ -15,7 +15,7 @@ export function Diffusion() {
   const frame = useCurrentFrame();
   const scene = project.scenes.find(s => frame >= s.startFrame && frame < s.endFrame) ?? project.scenes[project.scenes.length - 1];
   const spread = interpolate(frame, [0, project.durationInFrames - 1], [22, 214], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
-  const sceneOpacity = interpolate(frame - scene.startFrame, [0, 12], [.25, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const sceneOpacity = scene.startFrame === 0 ? 1 : interpolate(frame - scene.startFrame, [0, 12], [.25, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   return <AbsoluteFill style={{ background: '#f6f2e9', color: '#102023', fontFamily: 'Arial, Helvetica, sans-serif' }}>
     <svg viewBox="0 0 1280 720" width="100%" height="100%" role="img" aria-label="Schematic particles spreading from a localized region">
       <defs>

@@ -54,7 +54,7 @@ export function verifyMedia(file, project) {
     return { ...window, rms };
   });
   const stationary = project.stationaryRegions.map(region => {
-    const filter = `trim=start_frame=${region.startFrame}:end_frame=${region.endFrame},crop=${region.width}:${region.height}:${region.x}:${region.y},format=yuv444p,tblend=all_mode=difference,signalstats,metadata=print:file=-`;
+    const filter = `trim=start_frame=${region.startFrame}:end_frame=${region.endFrame},format=yuv444p,crop=${region.width}:${region.height}:${region.x}:${region.y},tblend=all_mode=difference,signalstats,metadata=print:file=-`;
     const log = execFileSync('ffmpeg', ['-v', 'error', '-i', file, '-vf', filter, '-an', '-f', 'null', '-'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     const difference = stationaryDifferences(log, region.endFrame - region.startFrame - 1);
     assert.ok(difference.peak <= region.maxMeanDifference, `Stationary region flicker: ${difference.peak} exceeds ${region.maxMeanDifference}`);

@@ -23,7 +23,9 @@ scene plan, provenance, review evidence, and a checked MP4 export.
 - Review reports identify sampled frames and start as unreviewed. No automatic
   claim of scientific correctness or every-frame visual inspection.
 - MIT license for original code; dependency licenses remain separate.
-- CI checks contracts, types, bundling, and a small render/verification smoke test.
+- A CI template checks contracts, types, bundling, and a render/verification smoke
+  test. Activation requires a GitHub credential with workflow permission; the
+  initial publishing credential lacks it. Run the same checks locally meanwhile.
 
 ## Explicit boundaries
 

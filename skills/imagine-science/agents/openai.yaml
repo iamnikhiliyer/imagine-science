@@ -1,0 +1,4 @@
+interface:
+  display_name: "Imagine Science"
+  short_description: "Create and review editable scientific animations"
+  default_prompt: "Use $imagine-science to turn my scientific references and assets into an editable Remotion animation with source provenance and a bounded visual review."
