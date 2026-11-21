@@ -7,7 +7,7 @@ English narration with synchronized captions. Duration follows the delivered voi
 
 ## Visual contract
 
-The current film follows one original diffusion illustration from a research note to an encoded, checked MP4. Warm paper, deep green figure backgrounds, serif titles, and Manrope annotations distinguish the original source notes from the moving figure. The paper, code highlights, waveform, frame strip, and label correction follow the spoken method. The af_heart voice reads a continuous paragraph with native punctuation pauses. The timing of the resulting audio determines the duration.
+A single optical instrument carries the film. The camera follows a marked amber particle from a printed research note into a glass chamber. It drops to the edge as component planes separate, follows the voice around the rim, tracks alongside a moving strip of film, then returns to the particle for a matched replay of a late label and its correction. Dark teal light, brushed metal, ivory paper, and sparse engraving carry forward the earlier process film’s art direction. Caption and voice timings follow the existing recording.
 
 The publication figure derives from 3,525,866 science and engineering articles in selected journals and conference proceedings indexed by Scopus for 2024, divided by 366 and rounded to the nearest hundred. [National Science Board, worldwide publication output](https://ncses.nsf.gov/pubs/nsbsep20261/discovery-r-d-activity-and-research-publications-2)
 

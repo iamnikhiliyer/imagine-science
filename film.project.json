@@ -185,6 +185,20 @@
       "source": "Earlier continuous narration preserved for Process-Draft.",
       "license": "Original script MIT; Kokoro-82M Apache-2.0",
       "sha256": "2581df97551c6a18a06e061872258ca7c44f21479e8b84494de4701ee2745bb3"
+    },
+    {
+      "path": "explainer/optic-surface.jpg",
+      "kind": "illustrative",
+      "source": "Original procedural material and lighting, production/make-optics.py",
+      "license": "MIT",
+      "sha256": "a40381f1e1db0d0f655f8e9bab931a9c26f4ad91ab8d27f3b1f1b611724f3bbe"
+    },
+    {
+      "path": "explainer/optic-studio.jpg",
+      "kind": "illustrative",
+      "source": "Original procedural material and lighting, production/make-optics.py",
+      "license": "MIT",
+      "sha256": "96c323aed0bfe7d5a879a7dd7c90432b9c2daa52dd1ce50280c7fb80a39424c6"
     }
   ],
   "audio": {

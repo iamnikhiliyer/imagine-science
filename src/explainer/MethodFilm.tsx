@@ -1,220 +1,131 @@
 import '@fontsource-variable/manrope';
-import { AbsoluteFill, random, useCurrentFrame } from 'remotion';
-import type { ReactNode } from 'react';
-import project from '../../film.project.json';
-import waveform from './waveform.json';
-import words from './words.json';
+import { AbsoluteFill, Img, staticFile, useCurrentFrame } from 'remotion';
 import { Narration } from './Narration';
+import { Specimen, position } from './optics/Specimen';
+import { Archive, AudioGroove, Disc, FilmRibbon, Glass, Note, plane } from './optics/Materials';
+import { after, before, cameraAt, concentration, cue, smooth, specimenTime, windowAt } from './optics/timeline';
 
-const ink = '#11282b', muted = '#4e6963', mint = '#8ad5bd', coral = '#ff9778', paper = '#f3eee1';
-const mono = 'Menlo, monospace', serif = 'Georgia, serif';
-const ease = (frame: number, start: number, end: number) => {
-  const t = Math.max(0, Math.min(1, (frame - start) / (end - start)));
-  return t * t * (3 - 2 * t);
-};
-function cue(label: string) {
-  const found = project.cues.find(c => c.label === label);
-  if (!found) throw new Error('Missing visual cue ' + label);
-  return found.frame;
-}
+const field='Manrope Variable, Arial, sans-serif',mono='Menlo, monospace';
+const edge={position:'absolute',left:96,top:96,color:'#f0ecd7',fontFamily:field} as const;
+const notes = [
+  [cue('TypeScript.'),'Diffusion.tsx'],
+  [cue('React describes'),'<ParticleCloud />'],
+  [cue('SVG draws'),'<circle cx={x} cy={y} />'],
+  [cue('Remotion controls'),'useCurrentFrame()'],
+] as const;
 
-const seeds = Array.from({length: 92}, (_, i) => ({
-  x: Math.cos(i * 2.39996) * Math.sqrt((i + 1) / 92),
-  y: Math.sin(i * 2.39996) * Math.sqrt((i + 1) / 92),
-  phase: random('diffusion-' + i) * Math.PI * 2,
-}));
+function Projection({f}:{f:number}) {
+  const sample=specimenTime(f), spread=concentration(f);
+  const [baseX,baseY,baseScale,pitch,yaw,roll]=cameraAt(f);
+  const layers=windowAt(f,765,852,940,1014);
+  const paperFirst=1-smooth(f,209,313);
+  const paperSource=windowAt(f,481,548,657,750);
+  const paperCompare=windowAt(f,1905,1940,1986,2025);
+  const paper=Math.max(paperFirst,paperSource,paperCompare);
+  const transfer=smooth(f,116,284);
+  const openingX=-570+540*transfer;
+  const paperX=paperFirst>0?openingX:-603+42*Math.sin(f*.018);
+  const paperY=paperFirst>0?-98+78*transfer:-39;
+  const wire=windowAt(f,845,911,973,1023);
+  const ring=windowAt(f,1080,1145,1435,1504);
+  const strip=windowAt(f,1490,1574,1743,1807);
+  const travel=smooth(f,1506,1744);
+  const replay=sample;
+  const fixed = f>=after;
+  const label=f>=before?smooth(replay,fixed?4:48,fixed?12:56):0;
+  const proof=windowAt(f,1760,1813,1987,2030);
+  const compare=windowAt(f,1913,1940,1987,2020);
+  const story=windowAt(f,655,688,737,775);
+  const tag=[...notes].reverse().find(([at])=>at<=f);
+  const srcRay=windowAt(f,567,608,666,708);
+  const [tx,ty]=position(111,sample,spread);
+  // Rack into the actual amber tracer. Its projected position stays in the
+  // composition while the other beads and the rim pass the lens at different speeds.
+  const macro=1.54*windowAt(f,198,303,316,393)
+    +1.14*windowAt(f,394,473,482,534)
+    +1.91*windowAt(f,1003,1090,1113,1181)
+    +1.37*windowAt(f,1298,1366,1387,1450)
+    +1.21*windowAt(f,1973,2044,2070,2124);
+  const scale=baseScale+macro;
+  const angle=roll*Math.PI/180;
+  const x=baseX-macro*(tx*Math.cos(angle)-ty*Math.sin(angle));
+  const y=baseY-macro*(tx*Math.sin(angle)+ty*Math.cos(angle));
+  const sync=windowAt(f,1212,1253,1392,1420);
+  const strikes=cue('cue the motion.');
+  const cueSweep=smooth(f,1233,strikes);
 
-function point(i: number, frame: number, spread: number) {
-  const {x, y, phase} = seeds[i];
-  return [
-    x * (38 + 278 * spread) + Math.sin(frame * .042 + phase) * (4 + spread * 12),
-    y * (34 + 154 * spread) + Math.cos(frame * .037 + phase) * (3 + spread * 11),
-  ];
-}
-
-function Cloud({frame, spread, annotation = true, wire = 0}: {frame: number; spread: number; annotation?: boolean; wire?: number}) {
-  const track = 80;
-  const trail = Array.from({length: 35}, (_, j) => point(track, frame - 3 * (34 - j), Math.max(0, spread - (34 - j) * .012)).join(',')).join(' ');
-  const [tx, ty] = point(track, frame, spread);
-  return <g>
-    {[68,136,204].map(r=><circle key={r} r={r} fill="none" stroke="#49645e" strokeWidth="1" strokeDasharray="2 9"/>)}
-    <path d="M-338 0H338 M0 -194V194" stroke="#345651" strokeDasharray="4 9"/>
-    <polyline points={trail} fill="none" stroke={coral} strokeWidth="2.5" opacity={annotation ? .95 : .12}/>
-    {seeds.map((_,i)=>{const [x,y]=point(i,frame,spread);return <circle key={i} cx={x} cy={y} r={i%5===0?5.2:3.8} fill={wire>.65?'none':i%9===0?'#f5e8bc':mint} stroke={mint} strokeWidth={wire>.65?1.8:.4}/>;})}
-    <circle cx={tx} cy={ty} r="7" fill={coral}/>
-    {annotation && <circle cx={tx} cy={ty} r="15" stroke={coral} fill="none" strokeWidth="1.5"/>}
-  </g>;
-}
-
-function Type({x=0,y=0,size=25,fill=ink,face='Manrope Variable',children,weight=500}: {x?:number;y?:number;size?:number;fill?:string;face?:string;children:ReactNode;weight?:number}) {
-  return <text x={x} y={y} fill={fill} fontSize={size} fontFamily={face} fontWeight={weight}>{children}</text>;
-}
-
-function ReferencePage({frame}: {frame:number}) {
-  return <g>
-    <rect width="360" height="458" fill="#f9f6ec" stroke="#b1b5a5" strokeWidth="2"/>
-    <path d="M27 65H332 M27 371H332" stroke="#97a99a"/>
-    <Type x={28} y={42} size={15} face={mono}>RESEARCH NOTE   /   1905</Type>
-    <Type x={28} y={113} size={37} face={serif}>Brownian motion</Type>
-    <Type x={29} y={146} size={18} fill={muted}>Albert Einstein · Annalen der Physik</Type>
-    <rect x="28" y="177" width="304" height="163" fill={ink}/>
-    <g transform="translate(180 260) scale(.38)"><Cloud frame={frame} spread={.86}/></g>
-    <Type x={29} y={397} size={15} face={mono}>ORIGINAL SCHEMATIC</Type>
-    <Type x={29} y={426} size={16} fill={muted}>doi:10.1002/andp.19053220806</Type>
-  </g>;
-}
-
-function Lines({items, active, y=475}: {items:string[];active:number;y?:number}) {
-  return <g>{items.map((line,i)=><g key={line} opacity={i<=active?1:.38}>
-    <rect x={105} y={y+i*54-20} width={i===active?35:13} height="3" fill={i===active?'#ae4938':'#789088'}/>
-    <Type x={157} y={y+i*54-8} size={27} fill={i===active?ink:muted}>{line}</Type>
-  </g>)}</g>;
-}
-
-function Scope({frame,spread,annotation=true,wire=0,tag='Illustrative diffusion',footer='Particle trajectories · schematic'}:{frame:number;spread:number;annotation?:boolean;wire?:number;tag?:string;footer?:string}) {
-  return <g>
-    <rect width="840" height="568" rx="3" fill={ink}/>
-    <path d="M32 71H808 M32 498H808" stroke="#5c7972"/>
-    <Type x={36} y={48} size={20} face={mono} fill="#ccdfcf">{tag}</Type>
-    <Type x={36} y={540} size={20} fill="#c4d6c7">{footer}</Type>
-    <g transform="translate(420 286)"><Cloud frame={frame} spread={spread} annotation={annotation} wire={wire}/></g>
-  </g>;
-}
-
-function Wave({progress,x,y,w=710,h=68}:{progress:number;x:number;y:number;w?:number;h?:number}) {
-  return <g transform={`translate(${x} ${y})`}>
-    {waveform.map((v,i)=><path key={i} d={`M${i*w/waveform.length} ${-4-v*h/2}v${8+v*h}`} stroke={i/waveform.length<=progress?'#a54a36':'#acb4a6'} strokeWidth="4"/>)}
-    <path d={`M${w*progress} ${-h*.7}v${h*1.4}`} stroke={ink} strokeWidth="3"/>
-  </g>;
-}
-
-function Strip({frame,progress}: {frame:number;progress:number}) {
-  return <g transform="translate(110 626)">
-    <rect width="1670" height="206" fill={ink}/>
-    {Array.from({length:67},(_,i)=><path key={i} d={`M${12+i*25} 11h12 M${12+i*25} 194h12`} stroke="#c5cdbb" strokeWidth="5"/>)}
-    {[0,1,2,3,4,5,6].map(i=><g key={i} transform={`translate(${25+i*235} 27)`} opacity={progress*7>=i?1:.24}>
-      <rect width="208" height="149" fill="#1a3938" stroke="#6e9186"/>
-      <g transform="translate(104 74) scale(.29)"><Cloud frame={frame+i*11} spread={i/6} annotation={false}/></g>
-      <Type x={8} y={135} size={14} face={mono} fill="#b6c7b9">{String(i*10).padStart(3,'0')}</Type>
-    </g>)}
-  </g>;
-}
-
-function Heading({lines}:{lines:string[]}) {
-  return <>{lines.map((line,i)=><Type key={line} x={101} y={281+i*93} size={83} face={serif}>{line}</Type>)}</>;
+  const fix=windowAt(f,2190,2219,2318,2340);
+  return <>
+    <Img src={staticFile('explainer/optic-studio.jpg')} style={{width:'100%',height:'100%',position:'absolute'}}/>
+    <div style={{position:'absolute',left:x-570*scale,top:Math.min(825,y+215*scale),width:1140*scale,height:190*scale,borderRadius:'50%',background:'radial-gradient(ellipse,#000b,transparent 69%)',transform:`rotate(${roll*.4}deg)`}}/>
+    <div style={{position:'absolute',inset:0,perspective:2050,perspectiveOrigin:'50% 48%'}}>
+      <div style={{position:'absolute',transformStyle:'preserve-3d',left:x,top:y,transform:`scale(${scale}) rotateX(${pitch}deg) rotateY(${yaw}deg) rotateZ(${roll}deg)`}}>
+        <Archive frame={f} fade={1-smooth(f,144,267)}/>
+        <div style={{position:'absolute',transformStyle:'preserve-3d',transform:`scale(${1-.24*strip})`}}>
+          <Disc/>
+          <Glass z={38+layers*114} opacity={layers} kind="geometry"/>
+          <div style={plane(1000,1000,`translateZ(${12+layers*202}px)`)}>
+            <Specimen time={sample} spread={spread} wire={wire} trail={.65+.35*wire} label={label}/>
+          </div>
+          <Glass z={33+layers*338} opacity={layers} kind="labels"/>
+          {tag && f<1100 && <div style={{...plane(680,55,`translate3d(0,295px,${54+layers*305}px)`),color:'#f6dbac',textAlign:'center',font:`34px ${mono}`,opacity:windowAt(f,794,823,1058,1094)}}>
+            {tag[1].slice(0,Math.max(1,Math.ceil((f-tag[0]+1)*1.15)))}
+          </div>}
+          <AudioGroove frame={f} opacity={ring} progress={smooth(f,1090,1460)}/>
+          {sync>.01 && <svg viewBox="-500 -500 1000 1000" style={{...plane(1000,1000,'translateZ(48px)'),opacity:sync}}>
+            <path d="M-346 150Q0 310 346 150" fill="none" stroke="#c8d8bb" strokeWidth="1.3" strokeDasharray="3 7"/>
+            <g transform={`translate(${-172+172*cueSweep} ${205+25*cueSweep})`}>
+              <rect x="-99" y="-23" width="198" height="44" rx="7" fill="#112d2c" stroke="#dfc89f"/>
+              <text textAnchor="middle" y="7" fill="#fff0c9" fontSize="24">the particles spread</text>
+            </g>
+            <path d={`M0 204Q5 110 ${tx} ${ty}`} stroke="#f8c881" strokeWidth="2" fill="none" pathLength="1" strokeDasharray={`${smooth(f,strikes,strikes+26)} 1`}/>
+          </svg>}
+          {proof>.01 && <svg viewBox="-500 -500 1000 1000" style={{...plane(1000,1000,'translateZ(41px)'),opacity:proof}}>
+            <defs><clipPath id="review-mask"><circle r="400"/></clipPath></defs>
+            <g clipPath="url(#review-mask)">
+              <path d={`M${-445+890*smooth(f,1803,1931)} -408v816`} stroke="#ffe2a2" strokeWidth="4"/>
+              <path d={`M${-471+890*smooth(f,1803,1931)} -408v816`} stroke="#e3d59e" strokeOpacity=".12" strokeWidth="50"/>
+            </g>
+            <circle cx={tx} cy={ty} r={34+19*compare} stroke="#efcb8f" strokeWidth="2" fill="none" strokeDasharray="8 6"/>
+          </svg>}
+          {fix>.01 && <svg viewBox="-500 -500 1000 1000" style={{...plane(1000,1000,'translateZ(85px)'),opacity:fix}}>
+            <path d="M-288 301H292M-72 265V335" stroke="#e3d7b1" strokeWidth="2"/>
+            <text x="-111" y="367" fill="#f1e4c1" fontSize="23">voice cue</text>
+            <g transform={`translate(${123-195*smooth(f,cue('changes the scene'),after-6)} 301)`}>
+              <path d="M0 0L-9 -13H9Z" fill="#ffbc77"/><text x="0" y="-24" fill="#ffcf95" fontSize="26" textAnchor="middle">label</text>
+            </g>
+          </svg>}
+        </div>
+        {paper>.005 && <div style={{...plane(503,634,`translate3d(${paperX}px,${paperY}px,${paperFirst>0?120-90*transfer:95}px) rotateY(${paperFirst>0?-19+17*transfer:9}deg) rotateZ(${paperFirst>0?-12+12*transfer:-8}deg)`),opacity:paper,boxShadow:'-10px 20px 32px #07141770'}}><Note/></div>}
+        {srcRay>.01 && <svg viewBox="-850 -400 1700 800" style={{...plane(1700,800,'translateZ(112px)'),opacity:srcRay}}>
+          <path d={`M-580 150C-415 210 -332 -260 ${tx} ${ty}`} fill="none" stroke="#e4b97f" strokeWidth="2.8" pathLength="1" strokeDasharray={`${smooth(f,573,651)} 1`}/>
+        </svg>}
+        {story>.01 && [-1,1].map(i=><div key={i} style={{...plane(1000,1000,`translate3d(${i*(460+200*story)}px,130px,-110px) scale(.4)`),borderRadius:'50%',background:'#123638',border:'3px solid #87a89b',opacity:story*.9}}>
+          <Specimen time={i<0?10:90} spread={i<0?.15:.92} trail={.5}/>
+        </div>)}
+        <FilmRibbon opacity={strip} progress={.75+.25*strip} advance={-2.1+travel*5.3} audio={smooth(f,cue('adds the narration'),1711)}/>
+      </div>
+    </div>
+    {f<260 && <div style={{...edge,top:93,opacity:windowAt(f,7,42,194,252),textShadow:'0 4px 25px #061719'}}>
+      <div style={{fontSize:24,letterSpacing:2,color:'#d4dcc6'}}>Worldwide · 2024</div>
+      <div style={{font:'128px Georgia',lineHeight:1.06,letterSpacing:-6}}>9,600</div>
+      <div style={{fontSize:26}}>papers per day, on average</div>
+    </div>}
+    {f>=285 && f<506 && <div style={{...edge,top:124,opacity:windowAt(f,298,340,427,500),font:'75px Georgia',lineHeight:.99,letterSpacing:-3}}>Imagine<br/>Science</div>}
+    {f>=1750 && f<1950 && <div style={{...edge,opacity:windowAt(f,1768,1805,1918,1946),fontSize:26}}>
+      <div style={{font:'37px Georgia',marginBottom:17}}>Export check</div>
+      {[[cue('frame count,'),'2,429 frames'],[cue('dimensions,'),'1920 × 1080'],[cue('audio track,'),'AAC narration']].map(([at,s])=><div key={s} style={{marginTop:7,color:'#d1dfc9',opacity:smooth(f,Number(at),Number(at)+10)}}>{s}</div>)}
+    </div>}
+    {f>=2347 && <div style={{...edge,top:312,left:115,opacity:smooth(f,2347,2376),transform:`translateX(${-28*(1-smooth(f,2347,2376))}px)`}}>
+      <div style={{font:'126px Georgia',letterSpacing:-6,lineHeight:.92}}>Imagine<br/>Science</div>
+      <div style={{fontSize:27,marginTop:48,color:'#cbd9c8'}}>github.com/iamnikhiliyer/imagine-science</div>
+    </div>}
+  </>;
 }
 
 export function MethodFilm() {
-  const frame = useCurrentFrame();
-  const scene = project.scenes.find(s => frame < s.endFrame)!;
-  const id = scene.id;
-  const local = frame-scene.startFrame;
-  const age = (label:string, n=20)=>ease(frame,cue(label),cue(label)+n);
-  const idleSpread = .48 + .34*Math.sin(frame*.017);
-  const sampleSpread = id==='voice' ? .08+.91*age('the particles spread,',41) : idleSpread;
-  const wordFrame = (term: string) => Math.ceil(words.find(w => w.text === term)!.startMs * project.fps / 1000);
-  const focus = id === 'mission' ? 1 : ease(frame,wordFrame('outside'),wordFrame('figure'));
-  const intoFilm = id === 'mission' ? ease(frame,wordFrame('turn'),wordFrame('animations')) : 0;
-  const correctedRun = frame >= cue('renders it again.');
-  const revisionClock = correctedRun ? frame - cue('renders it again.') : local;
-  const revisionSpread = .10 + .79 * ease(revisionClock, 2, 31);
-  const labelShown = ease(revisionClock, correctedRun ? 2 : 52, correctedRun ? 10 : 64);
-  const switchCue = (labels:string[]) => labels.filter(l=>frame>=cue(l)).length;
-  const codeStep = switchCue(['React describes','SVG draws','Remotion controls']);
-  const exportProgress = age('renders the frames',67);
-  const correction = age('changes the scene',27);
-  return <AbsoluteFill style={{background:paper,fontFamily:'Manrope Variable, Arial, sans-serif'}}>
-    <svg width="1920" height="1080" viewBox="0 0 1920 1080">
-      <defs><pattern id="folio-grid" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#738675" opacity=".28"/></pattern></defs>
-      <rect width="1920" height="1080" fill="url(#folio-grid)"/>
-      <path d="M102 103H1818 M102 887H1818" stroke="#9aa99b" strokeWidth="1.5"/>
-      <Type x={103} y={75} size={25} weight={720}>Imagine Science</Type>
-      <text x="1818" y="75" textAnchor="end" fontSize="20" fontFamily={mono} fill={muted}>{scene.title}</text>
-      {(id==='opening'||id==='mission') && <>
-        <g opacity={1-intoFilm} transform={`translate(${960-135*focus} ${152-15*focus}) scale(${1+focus*.12})`}>
-          {[4,3,2,1,0].map(i=><g key={i} transform={`translate(${330+i*(40-38*focus)+(i+1)*Math.cos(frame*.009)*8+(1-ease(frame,0,88))*i*105} ${40+i*8}) rotate(${(-8+i*7)*(1-focus)+(i+1)*Math.sin(frame*.011)*.6} 180 230) scale(1.18)`}><ReferencePage frame={frame+i*12}/></g>)}
-        </g>
-        {id==='mission' && intoFilm>0 && <g opacity={intoFilm} transform={`translate(${965+90*(1-intoFilm)} 195)`}><Scope frame={frame} spread={.12+.8*ease(local,125,205)} tag="From the research note" footer="An editable, narrated figure"/></g>}
-        {id==='opening' ? <><g opacity={1-focus}>
-          <Type x={100} y={321} size={35} face={mono} fill={muted}>Worldwide · 2024</Type>
-          <Type x={85} y={523} size={209} face={serif}>{(Math.round(96*ease(frame,0,wordFrame('9,600')))*100).toLocaleString('en-US')}</Type>
-          <Type x={106} y={587} size={40}>science and engineering papers a day</Type>
-          <Type x={106} y={797} size={23} fill={muted}>Daily average · National Science Board</Type></g>
-          <g opacity={focus}>
-            <Heading lines={['What changed','in the figure?']}/>
-            <path d={`M110 471h${580*focus}`} stroke="#aa5540" strokeWidth="3"/>
-            <Type x={109} y={555} size={34}>From one particle to the whole cloud.</Type>
-          </g>
-        </> : <>
-          <Heading lines={['Imagine','Science']}/>
-          <Type x={106} y={485} size={36}>An open-source animation studio</Type>
-          <path d={`M107 552h${600*ease(local,0,115)}`} stroke="#b65e45" strokeWidth="3"/>
-          <Type x={106} y={638} size={27} fill={muted}>Research paper → editable scientific film</Type>
-        </>}
-      </>}
-      {id==='source' && <>
-        <g transform={`translate(${130+20*ease(local,0,95)} 162) rotate(-3 180 230) scale(1.36)`}><ReferencePage frame={frame}/></g>
-        <path d="M665 463C795 463 779 321 927 321" fill="none" stroke="#a85741" strokeWidth="3" pathLength="1" strokeDasharray={`${age('each claim',30)} 1`}/>
-        <g transform="translate(957 0)">
-          <Type y={272} size={66} face={serif}>Trace the claim.</Type>
-          <Type y={367} size={32}>A localized cloud spreads over time.</Type>
-          <Type y={416} size={22} fill={muted}>Source note · Einstein, 1905, §§ IV–V</Type>
-          <g opacity={age('builds a storyline',15)}>
-            <Type y={531} size={37} face={serif}>Build the sequence</Type>
-            {[0,.48,.98].map((n,i)=><g key={n} transform={`translate(${i*269} 577)`}><rect width="240" height="144" fill={ink}/><g transform="translate(120 74) scale(.32)"><Cloud frame={frame} spread={n} annotation={false}/></g><Type y={185} size={23}>{['Localize','Follow','Pull back'][i]}</Type></g>)}
-          </g>
-        </g>
-      </>}
-      {id==='code' && <>
-        <Heading lines={['Writing','the scene']}/>
-        <g transform="translate(105 468)">
-          {['Diffusion.tsx','<ParticleCloud />','<circle cx={x} cy={y} />','useCurrentFrame()'].map((line,i)=><g key={line}>
-            <rect x="-2" y={i*61-36} width="646" height="51" fill={i===codeStep?'#d4dfce':'none'}/>
-            <Type x={13} y={i*61} size={27} face={mono} fill={i===codeStep?ink:muted}>{line}</Type>
-          </g>)}
-        </g>
-        <g transform="translate(890 192)"><Scope frame={frame} spread={codeStep===3?.10+.84*age('Remotion controls',71):.52} wire={codeStep===2?1:0} tag={['TypeScript / scene definition','React / component tree','SVG / vector geometry','Remotion / frame clock'][codeStep]} footer={['Component source','ParticleCloud → particles → label','Circle positions and editable labels','Position changes with the frame number'][codeStep]}/></g>
-      </>}
-      {id==='voice' && <>
-        <Heading lines={['One continuous','voice track']}/>
-        <Lines items={['Generate narration with Kokoro','Align the captions','Cue the particle motion']} active={switchCue(['place the captions','cue the motion.'])}/>
-        <Wave x={108} y={746} w={645} progress={local/(scene.endFrame-scene.startFrame)} />
-        <g transform="translate(887 193)"><Scope frame={frame} spread={sampleSpread} tag="Voice and picture" footer={frame<cue('the particles spread,')?'Awaiting the spoken cue':'“the particles spread”'}/></g>
-      </>}
-      {id==='export' && <>
-        <Type x={100} y={276} size={90} face={serif}>{frame<cue('FFmpeg stitches')?'Rendering the frames':'Encoding the film'}</Type>
-        <Type x={107} y={367} size={33}>{frame<cue('FFmpeg stitches')?'Remotion · headless browser':'FFmpeg · H.264 + AAC → MP4'}</Type>
-        <g transform="translate(1100 132) scale(.72)"><Scope frame={frame} spread={exportProgress} tag="Render preview" footer="Schematic sequence"/></g>
-        <path d="M110 470H916" stroke="#bdc8b9" strokeWidth="4"/><path d={`M110 470H${110+806*exportProgress}`} stroke="#577d6d" strokeWidth="6"/>
-        {frame>=cue('adds the narration') && <Wave x={110} y={550} w={800} h={35} progress={age('adds the narration',60)}/>}
-        <Strip frame={frame} progress={exportProgress}/>
-      </>}
-      {id==='review' && <>
-        <Heading lines={['Check','the export']}/>
-        <Lines items={[`${project.durationInFrames.toLocaleString('en-US')} decoded frames`,'1920 × 1080 at 30 fps','AAC narration','Compare the frame with its source','Play through at full speed']} active={switchCue(['frame count,','dimensions,','audio track,','compares individual','Watching the film'])-1}/>
-        <g transform="translate(888 193)"><Scope frame={frame<cue('Watching the film')?0:local} spread={frame<cue('Watching the film')?.75:idleSpread} tag={frame<cue('Watching the film')?'Frame inspection':'Playback / 1.00×'} footer="Original illustrative sequence"/>
-          {frame>=cue('compares individual') && frame<cue('Watching the film') && <g transform="translate(13 88) scale(.60)"><ReferencePage frame={0}/></g>}
-        </g>
-      </>}
-      {id==='revise' && <>
-        <Heading lines={['Correct','the cue']}/>
-        <Type x={107} y={487} size={30}>Label timing</Type>
-        <path d="M108 620H755" stroke="#879d8c" strokeWidth="3"/>
-        <path d="M355 574V672" stroke={ink} strokeWidth="3"/>
-        <Type x={285} y={709} size={21} face={mono}>spoken cue</Type>
-        <g transform={`translate(${505-150*correction} 583)`}><rect width="192" height="72" rx="3" fill={correction>.9?'#bad6c3':'#edb29a'}/><Type x={22} y={46} size={22}>Cloud spreads</Type></g>
-        <g transform="translate(888 193)"><Scope frame={local} spread={revisionSpread} tag={correction>.9?'Revised scene':'Review / timing discrepancy'} footer={correction>.9?'Label and motion share a cue':'Label enters after the motion'}/>
-          <g opacity={labelShown}><path d="M580 199l65 -47h118" stroke={coral} fill="none" strokeWidth="2"/>
-          <Type x={630} y={133} size={23} fill={coral}>Cloud spreads</Type></g></g>
-      </>}
-      {id==='close' && <>
-        <Type x={98} y={342} size={115} face={serif}>Imagine Science</Type>
-        <Type x={105} y={447} size={43}>Explore the project on GitHub.</Type>
-        <Type x={107} y={562} size={28} face={mono} fill={muted}>github.com/iamnikhiliyer/</Type>
-        <Type x={107} y={607} size={34} face={mono}>imagine-science</Type>
-        <g transform="translate(1005 201) scale(.90)"><Scope frame={frame} spread={idleSpread} tag="Imagine Science" footer="Editable source · illustrative diffusion"/></g>
-      </>}
-    </svg>
-    <Narration/>
+  const f=useCurrentFrame();
+  return <AbsoluteFill style={{background:'#0a1d21',overflow:'hidden',fontFamily:field}}>
+    <Projection f={f}/><Narration/>
   </AbsoluteFill>;
 }

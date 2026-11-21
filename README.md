@@ -17,7 +17,8 @@ Choose **Imagine-Science** for the current film. Earlier compositions are availa
 - `production/script.json`: exact delivered narration.
 - `production/synthesize.py`: optional local synthesis/alignment preparation.
 - `film.project.json`: scene timing, captions, review cues, and asset provenance.
-- `src/explainer/MethodFilm.tsx`: the current word-cued scientific illustration and workflow.
+- `src/explainer/MethodFilm.tsx` and `src/explainer/optics/`: camera choreography, layered optical instrument, illustrative particles, and filmstrip.
+- `production/make-optics.py`: reproduces the two original material and lighting textures with NumPy and FFmpeg.
 - `src/explainer/process/`: source and timing for the earlier continuous film.
 - `src/explainer/`: earlier draft, caption overlay, voice word timings, and waveform.
 - `public/explainer/`: prepared narration and the toolkit's original starter preview.
