@@ -27,6 +27,13 @@ render/verification. It is not active: the initial publishing credential lacked
 the `workflow` scope, and no configured SSH credential was available. No Linux
 CI result is claimed. The same checks are run from a fresh local checkout.
 
+Fresh-checkout result: public source revision `388bf2d` passed `npm ci`, doctor,
+all 22 tests, lint/types, production bundling, full rendering, and export
+verification. The local and fresh-clone exports had the same SHA-256:
+`7acbb3467e1a26e161c21e2f0338970968022d2d7e40274487dd08e320eb2dc1`.
+Codex's GitHub skill installer also downloaded the published skill into an
+isolated directory, and its doctor command succeeded against the fresh project.
+
 ## Visual inspection
 
 The Studio composition loaded in a real browser, and playback was exercised.
