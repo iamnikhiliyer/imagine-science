@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "compositionId": "Diffusion",
+  "title": "Diffusion — a schematic introduction",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "durationInFrames": 360,
+  "scenes": [
+    { "id": "local", "startFrame": 0, "endFrame": 120, "title": "Small movements.\nA wider distribution.", "caption": "Particles begin in a localized region." },
+    { "id": "spread", "startFrame": 120, "endFrame": 240, "title": "Motion continues.\nThe cloud spreads.", "caption": "The ensemble spreads while individual particles keep moving." },
+    { "id": "model", "startFrame": 240, "endFrame": 360, "title": "Make the model\nvisible.", "caption": "Illustrative trajectories explain a concept; they are not experimental data." }
+  ],
+  "cues": [
+    { "frame": 90, "label": "Localized cloud" },
+    { "frame": 210, "label": "Distribution widens" },
+    { "frame": 300, "label": "Schematic disclosure" }
+  ],
+  "assets": [],
+  "audio": { "mode": "silent", "path": null, "captions": [], "speechWindows": [] },
+  "review": { "extraFrames": [30, 180, 330], "maxFrames": 80 },
+  "stationaryRegions": []
+}
