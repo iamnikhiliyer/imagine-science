@@ -22,7 +22,7 @@
     "verify": "node skills/imagine-science/scripts/cli.mjs verify",
     "contact-sheet": "node skills/imagine-science/scripts/cli.mjs contact-sheet",
     "lint": "eslint src && tsc --noEmit",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "check": "npm run validate && npm run lint && npm test"
   },
   "dependencies": {

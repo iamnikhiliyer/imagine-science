@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "compositionId": "Imagine-Science",
-  "title": "Imagine Science \u2014 a moving explanation",
+  "title": "Imagine Science — a moving explanation",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -176,11 +176,21 @@
   },
   "review": {
     "extraFrames": [
-      54,
-      216,
-      417,
-      597,
-      801
+      20,
+      65,
+      150,
+      215,
+      280,
+      375,
+      405,
+      455,
+      535,
+      575,
+      605,
+      645,
+      750,
+      825,
+      900
     ],
     "maxFrames": 80
   },

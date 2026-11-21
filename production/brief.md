@@ -7,14 +7,15 @@ English narration with synchronized captions. Duration follows the delivered voi
 
 ## Visual contract
 
-Warm paper (#f6f2e9), deep ink (#102023), teal (#39776c), and restrained terracotta
-(#bf6846). Large editorial serif titles, Manrope labels, fine diagram lines, and
-subtle dotted registration marks. Motion expresses transformation and inspection:
-source sheets become a scene; frame evidence is examined; the editable source
-and exported film remain connected. Keep the lower 150px clear for captions.
+Current direction: [revision-2.md](revision-2.md). A dark, softly lit dimensional
+workspace carries one persistent scientific schematic through source collection,
+layer assembly, temporal inspection, refinement, and the closing. Camera motion
+and visible state changes carry the explanation. Short Manrope action labels
+and the final serif identity support it. Keep the lower 150px clear for captions.
 
-Use the toolkit's real starter preview and real source excerpts. Diagram motifs
-are schematic. No fabricated product interface, experimental data, user counts,
+The main animation is an original code-native schematic. The toolkit's starter
+preview remains in the archived first draft. No fabricated product interface,
+experimental data, user counts,
 performance claims, or implied automatic scientific approval. Keep scenes readable
 at their first and last frames. Match cuts and visual emphasis to delivered speech.
 

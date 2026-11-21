@@ -3,8 +3,9 @@
 A 30.67-second narrated introduction to Imagine Science, created from a separate
 clone of the [public toolkit](https://github.com/iamnikhiliyer/imagine-science).
 
-The film explains references → editable Remotion scenes → frame review → export
-checks, with the researcher's scientific judgment kept in the loop. Five scenes
+The film follows one animated schematic as sources connect to it, editable layers
+separate and assemble, and temporal frames unfold for inspection and refinement.
+The researcher's scientific judgment stays in the loop. Five shot entry points
 are independently available in Studio. Narration is synthesized locally using
 Kokoro's af_heart voice, with word-aligned highlighting and editable phrase captions.
 
@@ -15,8 +16,9 @@ npm ci
 npm run dev -- --port=4322
 ```
 
-Open the printed URL and choose **Imagine-Science**. The scene compositions are
-under **Scenes**. The film is 1920×1080 at 30 fps, 920 frames.
+Open the printed URL and choose **Imagine-Science**. The shot compositions are
+under **Shots**. The earlier presentation draft is retained under **Earlier-Draft**.
+The film is 1920×1080 at 30 fps, 920 frames.
 
 ## Source and review
 
@@ -24,9 +26,11 @@ under **Scenes**. The film is 1920×1080 at 30 fps, 920 frames.
 - `production/script.json`: exact delivered narration.
 - `production/synthesize.py`: optional local synthesis/alignment preparation.
 - `film.project.json`: scene timing, captions, review cues, and asset provenance.
-- `src/explainer/`: editable scenes, caption overlay, voice word timings, and waveform.
+- `src/explainer/process/`: continuous camera/actor choreography and scientific schematic.
+- `src/explainer/`: earlier draft, caption overlay, voice word timings, and waveform.
 - `public/explainer/`: prepared narration and the toolkit's original starter preview.
-- `production/review.md`: actual sampled-frame review and extraction findings.
+- `production/revision-2.md`: current visual direction and review findings.
+- `production/review.md`: superseded first-draft review and extraction findings.
 
 ```sh
 npm run check

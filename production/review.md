@@ -1,5 +1,9 @@
 # Imagine Science explainer — preview review
 
+**Superseded first-draft review.** The user rejected this version as slide-like.
+Its earlier 9/10 score did not adequately assess motion quality. See
+[revision-2.md](revision-2.md) for the replacement direction and current evidence.
+
 Date: 2026-11-21. Deliverable: narrated Studio preview, 1920×1080, 30 fps,
 920 frames / 30.67 seconds. No final MP4 export is claimed in this review.
 
