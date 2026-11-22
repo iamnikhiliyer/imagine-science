@@ -1,6 +1,6 @@
 # Imagine Science — from paper to film
 
-This narrated explainer follows an original diffusion illustration through source review, TypeScript, React and SVG, frame animation in Remotion, synchronized Kokoro narration and captions, FFmpeg export, and a timing correction. The native 3840 × 2160 film runs for 2,429 frames at 30 fps, approximately 81 seconds.
+This narrated explainer follows an original diffusion illustration through source review, TypeScript, React and SVG, frame animation in Remotion, synchronized ElevenLabs narration and captions, FFmpeg export, and a timing correction. The native 3840 × 2160 film runs for 2,760 frames at 30 fps, approximately 92 seconds.
 
 ## Preview
 
@@ -15,7 +15,7 @@ Choose **Imagine-Science** for the current film. Earlier compositions are availa
 
 - `production/brief.md`: visual direction, claim map, and source qualifications.
 - `production/script.json`: exact delivered narration.
-- `production/synthesize.py`: optional local synthesis/alignment preparation.
+- `production/synthesize.py`: optional Kokoro preparation from the earlier local narration workflow. The delivered film uses the included ElevenLabs Bella recording.
 - `film.project.json`: scene timing, captions, review cues, and asset provenance.
 - `src/explainer/LineFilm.tsx`: current fixed-camera vector animations aligned to the narration.
 - `src/explainer/MethodFilm.tsx` and `src/explainer/optics/`: the earlier optical-instrument cut.
@@ -45,5 +45,4 @@ The source project is published on the
 This is a product-explainer extraction exercise; it does not establish scientific
 subject-matter accuracy or production-time savings for other researchers.
 
-Original film source and script are MIT licensed. Dependency/model licenses
-remain separate; source details accompany the manifest and production brief.
+Original film source and script are MIT licensed. The included Bella recording is generated audio subject to the applicable ElevenLabs terms. Source details accompany the manifest and production brief.

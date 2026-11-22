@@ -1,5 +1,6 @@
 import '@fontsource-variable/manrope';
 import type {ReactNode} from 'react';
+import {createTikTokStyleCaptions} from '@remotion/captions';
 import {Audio} from '@remotion/media';
 import {AbsoluteFill, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import project from '../../film.project.json';
@@ -19,7 +20,7 @@ const marks={
   stat:at('9,600'), single:at('single figure'), name:at('Imagine Science is'), animate:at('turn research'),
   source:at('It starts'), claim:at('each claim'), cite:at('its source,'), story:at('builds a storyline'),
   code:at('The agent writes'), react:at('React describes'), svg:at('SVG draws'), shape:at('shapes and labels.'),
-  labels:at('labels.'), remotion:at('Remotion controls'), next:at('Next, Kokoro'), voice:at('generates one'),
+  labels:at('labels.'), remotion:at('Remotion controls'), next:at('Next, ElevenLabs'), voice:at('generates one'),
   phrase:at('each phrase'), caption:at('place the captions'), motion:at('cue the motion.'), show:at('When the narrator'),
   spread:at('spread, the cloud'), export:at('Once the timing'), frames:at('renders the frames'),
   join:at('stitches them'), add:at('adds the narration'), mp4:at('final MP4.'), check:at('Then the agent'),
@@ -133,7 +134,7 @@ function WriteScene({f}:{f:number}) {
 function Voice({f}:{f:number}) {
   if(f<marks.show) {
     const marker=t(f,marks.phrase,29),attach=t(f,marks.caption,22);
-    return <>{title('Kokoro')}<Wave progress={t(f,marks.next,86)}/>
+    return <>{title('ElevenLabs')}<Wave progress={t(f,marks.next,86)}/>
       {stroke('M-338 104H338',t(f,marks.voice+36,30),faint,2)}
       <g opacity={marker} transform={`translate(${mix(-310,-68,marker)} 0)`}>
         <path d="M0 -94V105" stroke={orange} strokeWidth="3"/>
@@ -158,7 +159,7 @@ function Export({f}:{f:number}){
 }
 function Review({f}:{f:number}){
   if(f<marks.compare){
-    const info=f<marks.count?'':f<marks.size?'2,429 frames':f<marks.audio?`${project.width} × ${project.height}`:'AAC audio';
+    const info=f<marks.count?'':f<marks.size?`${project.durationInFrames.toLocaleString('en-US')} frames`:f<marks.audio?`${project.width} × ${project.height}`:'AAC audio';
     return <>{title('Export check')}<FileIcon check={t(f,marks.check+22,21)}/><Label y={211} size={33}>{info}</Label></>;
   }
   if(f<marks.play){
@@ -183,9 +184,35 @@ function Revision({f}:{f:number}){
   const replay=t(f,marks.replay+2,24);
   return <>{title('Replay')}<Panel spread={replay} label={f>=marks.replay+2?'Cloud spreads':''}/></>;
 }
+const {pages: captionPages} = createTikTokStyleCaptions({
+  captions: words.map(word => ({...word, text: ' ' + word.text})),
+  combineTokensWithinMilliseconds: 10_000,
+});
+
+function WordHighlight({ms}: {ms: number}) {
+  const page = captionPages.find(({startMs, tokens}) =>
+    startMs <= ms && ms < tokens[tokens.length - 1].toMs);
+  if (!page) return null;
+  // Render the companion films' 1920px caption layout at this composition's scale.
+  return <div style={{
+    position: 'absolute', insetInline: 0, bottom: '10.926%', display: 'flex',
+    justifyContent: 'center', pointerEvents: 'none', fontFamily: sans,
+  }}>
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: 4, backgroundColor: '#edf0e5',
+      borderRadius: 120, padding: '18px 34px', color: '#090f12', fontSize: 98,
+      fontWeight: 670, lineHeight: 1.15, letterSpacing: '-.025em',
+    }}>
+      {page.tokens.map(token => <span key={token.fromMs} style={{
+        backgroundColor: ms >= token.fromMs && ms < token.toMs ? '#afdfca' : 'transparent',
+        padding: '6px 14px 12px', borderRadius: 48,
+      }}>{token.text.trim()}</span>)}
+    </div>
+  </div>;
+}
+
 export function LineFilm(){
   const f=useCurrentFrame(),{fps}=useVideoConfig();
-  const caption=project.audio.captions.find(c=>f>=c.startFrame && f<c.endFrame);
   let drawing:ReactNode;
   if(f<marks.code)drawing=<PaperSequence f={f}/>;
   else if(f<marks.next)drawing=<WriteScene f={f}/>;
@@ -197,8 +224,8 @@ export function LineFilm(){
   return <AbsoluteFill style={{background:paper}}>
     <svg width="100%" height="100%" viewBox="0 0 1600 900">
       <g transform="translate(800 410) scale(1.16)">{drawing}</g>
-      {caption && <Label x={800} y={823} size={32} weight={550}>{caption.text}</Label>}
     </svg>
+    <WordHighlight ms={f * 1000 / fps}/>
     <Audio src={staticFile(project.audio.path)} premountFor={fps}/>
   </AbsoluteFill>;
 }

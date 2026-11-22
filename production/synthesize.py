@@ -45,7 +45,7 @@ def main():
     pieces, words = [], []
     samples = 0
     spoken = script['text']
-    for name, pronunciation in {'FFmpeg': 'ˌɛfˌɛfmˈpɛɡ', 'SVG': 'ˌɛsvˌidʒˈi', 'Remotion': 'ɹɪmˈOʃən', 'Kokoro': 'kˈOkəɹO', 'TypeScript': 'tˈYpskɹɪpt'}.items():
+    for name, pronunciation in {'FFmpeg': 'ˌɛf ˌɛf ˈɛm pɛɡ', 'Remotion': 'ɹɪmˈOʃən', 'Kokoro': 'kˈOkəɹO', 'TypeScript': 'tˈIpskɹɪpt'}.items():
         spoken = spoken.replace(name, f'[{name}](/{pronunciation}/)')
     results = pipeline(spoken, voice=str(args.model_dir / 'voice.pt'), speed=1.05, split_pattern=None)
     for result in results:

@@ -2,12 +2,12 @@
 
 Audience: researchers and scientific communicators discovering the project.
 Goal: explain what the toolkit provides, its workflow, and the researcher's role.
-Format: landscape 3840×2160, 30 fps, approximately 81 seconds, local synthesized
+Format: landscape 3840×2160, 30 fps, approximately 92 seconds, synthesized
 English narration with synchronized captions. Duration follows the delivered voice.
 
 ## Visual contract
 
-The fixed frame centers one vector drawing on warm paper. Dark green ink describes the figure and a rust-colored dot identifies one particle. Each narrated verb moves one element: a line traces a claim, a shape draws, a cloud spreads, three frames join, and one timing mark moves. Other elements rest while the viewer reads. Captions use the original phrase boundaries; the approved voice recording sets every cue. All shapes and type render directly on a 3840 × 2160 canvas.
+The fixed frame centers one vector drawing on warm paper. Dark green ink describes the figure and a rust-colored dot identifies one particle. Each narrated verb moves one element: a line traces a claim, a shape draws, a cloud spreads, three frames join, and one timing mark moves. Other elements rest while the viewer reads. The film displays short phrases in a rounded bar with a mint highlight on the spoken word. The English subtitle track uses the longer phrases. Both follow the same recording. All shapes and type render directly on a 3840 × 2160 canvas.
 
 The publication figure derives from 3,525,866 science and engineering articles in selected journals and conference proceedings indexed by Scopus for 2024, divided by 366 and rounded to the nearest hundred. [National Science Board, worldwide publication output](https://ncses.nsf.gov/pubs/nsbsep20261/discovery-r-d-activity-and-research-publications-2)
 
@@ -26,9 +26,9 @@ The paper graphic is an original research note about Einstein’s 1905 treatment
 
 Primary source: https://github.com/iamnikhiliyer/imagine-science/tree/v0.1.0
 
-Narration uses the local Kokoro-82M model, af_heart voice, English, speed 1.05.
+ElevenLabs generated one continuous English take using Bella and eleven_multilingual_v2 at speed 1.0.
 The original script, word timings, waveform envelope, and generated FLAC are
-retained. Model source and license: https://huggingface.co/hexgrad/Kokoro-82M
+retained. Caption and animation timings derive from the character alignment returned with the recording.
 
 ## Extraction setup
 
