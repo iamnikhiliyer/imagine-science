@@ -1,169 +1,64 @@
 # Imagine Science
 
-**Scientific explanations you can edit, inspect, and trace back to their sources.**
+Imagine Science is an open-source toolkit for making scientific animations with a coding agent. A researcher supplies the paper, figures, or project references and decides what the explanation should say. The agent writes editable React and SVG scenes in TypeScript. Remotion renders the frames, and FFmpeg produces the video for playback.
 
-[![License: MIT](https://img.shields.io/badge/original_code-MIT-39776c.svg)](LICENSE)
+[Watch the 92-second film](https://nikhil-site.pages.dev/projects/imagine-science/) · [Explore its editable project](examples/imagine-science/) · [Install the Codex skill](#install-the-codex-skill)
 
-Imagine Science combines an installable Codex skill, a runnable Remotion starter,
-and tools for rendered-frame review and export verification. Supply a scientific
-brief, references, and assets; work with your agent to produce an editable film.
+[![Three frames from the film showing a claim traced to its source, narration aligned to motion, and the export review](docs/explainer-preview.jpg)](examples/imagine-science/)
 
-![The included schematic diffusion starter](docs/preview.png)
+## Open the studio
 
-*Included example: a silent, 12-second schematic of a spreading particle cloud.
-The trajectories illustrate a concept; they are not a calibrated simulation or
-experimental data.*
-
-## What is included
-
-- **Scientific production skill:** source review, explicit assumptions, scene
-  planning, provenance, narration timing, and a bounded visual correction loop.
-- **Remotion starter:** editable React/SVG animation, a frame-based scene manifest,
-  optional prepared narration, and phrase captions.
-- **Review tools:** exact-frame PNGs, an evidence index, an unreviewed report, and
-  a contact-sheet command for exported videos.
-- **Technical verification:** decoded frame count, dimensions, timing, codec,
-  audio policy, full decoding, and optional audio-energy/stationary-region checks.
-
-The editor and renderer are Remotion. Image/video generation and speech synthesis
-use separately available tools or supplied files. No provider clients, API keys,
-model weights, or hosted services are included. The default example runs locally
-without paid generation.
-
-## Quick start
-
-Install **Node.js 22.13 or newer**, Git, **FFmpeg**, and **ffprobe**. On macOS,
-Homebrew supplies both media tools with `brew install ffmpeg`; on Ubuntu use
-`sudo apt-get install ffmpeg`.
+Install Git, Node.js 22.13 or newer, and FFmpeg with ffprobe. On macOS, `brew install ffmpeg` supplies both media tools. The first render can download Remotion’s Chrome Headless Shell.
 
 ```sh
 git clone https://github.com/iamnikhiliyer/imagine-science.git
 cd imagine-science
 npm ci
 npm run doctor
-npm run dev
+npm run dev:explainer
 ```
 
-Open the local URL printed by Remotion, then choose **Diffusion**. The development
-server runs until you stop it. First rendering may download Remotion's Chrome
-Headless Shell; preview and rendering require a browser-capable environment.
+Open the local URL printed by Studio and select **Imagine-Science**. The checkout includes the final voice track, so you can preview, edit, and render the film offline once dependencies and the browser are installed. To start a smaller project, `npm run dev` opens **Diffusion**, a silent 12-second schematic with the same manifest and review tools.
 
-```sh
-npm run check           # Manifest/assets, lint, types, and tests
-npm run review          # Render boundary/cue/extra-frame evidence
-npm run render          # Export out/film.mp4
-npm run verify          # Check the exported media; write verification JSON
-npm run contact-sheet   # Sample a visual overview of the MP4
-```
+## How a film comes together
 
-Outputs stay in `out/` and are ignored by Git. Review evidence starts as
-**unreviewed**. Inspect the images, watch continuous motion, listen to any audio,
-and record your findings; generating a report does not perform that review.
+| Stage | What you can inspect or change |
+| --- | --- |
+| Establish the explanation | Record the audience, sources, supported claims, and which visuals are illustrative. Write one continuous script and choose the action that makes each step visible. [Production brief](examples/imagine-science/production/brief.md) |
+| Build the scene | React lays out the figure, SVG draws its parts, and Remotion’s frame number drives each change. The example follows a particle cloud through writing, narration, rendering, and a timing correction. [Scene code](examples/imagine-science/src/Film.tsx) |
+| Match the voice to the action | The finished film uses ElevenLabs Bella. The recording’s word timestamps cue the motion and the mint highlight on the spoken word. Longer phrases supply the selectable subtitle track. You can also bring an aligned Kokoro or recorded narration. [Narration workflow](skills/imagine-science/references/narrated-films.md) |
+| Review and deliver | Inspect exact frames around a cue, play through the transitions, correct the source, and render again. The verifier checks the decoded H.264 picture, timing, dimensions, and expected audio. The optional web export enforces a byte limit. [Review guide](skills/imagine-science/references/visual-review.md) |
+
+## Render the included projects
+
+Run these commands from the repository root. Each project writes to its own ignored `out/` directory.
+
+| Operation | Narrated 4K explainer | Silent starter |
+| --- | --- | --- |
+| Check manifest and assets | `npm run explainer -- validate` | `npm run validate` |
+| Inspect selected frames | `npm run explainer -- review 720 1350` | `npm run review -- 90 120` |
+| Render MP4 | `npm run explainer -- render` | `npm run render` |
+| Decode and verify MP4 | `npm run explainer -- verify` | `npm run verify` |
+| Write a contact sheet | `npm run explainer -- contact-sheet` | `npm run contact-sheet` |
+
+`npm run explainer -- subtitles` writes the phrase captions to `examples/imagine-science/out/en.vtt`. After rendering, `npm run explainer -- web 8000000` makes a fast-start MP4 of at most 8,000,000 bytes and verifies the result. It keeps the audio stream and uses two-pass video compression when needed. Inspect fine labels and motion at playback size after choosing a compression budget.
 
 ## Install the Codex skill
 
-In Codex, ask its built-in installer:
+Ask Codex’s skill installer to install the directory from GitHub.
 
 ```text
-$skill-installer Install the imagine-science skill from
-https://github.com/iamnikhiliyer/imagine-science/tree/main/skills/imagine-science
+$skill-installer Install https://github.com/iamnikhiliyer/imagine-science/tree/main/skills/imagine-science
 ```
 
-Or copy the entire `skills/imagine-science` directory from this checkout into
-your user skill directory, such as `~/.agents/skills/imagine-science`. Preserve
-the scripts and references alongside `SKILL.md`; copying that file alone is not
-enough. Start a new session if your client has not discovered the installed skill.
+You can also copy the complete `skills/imagine-science` folder to `~/.agents/skills/`. Start a new session if the client needs to rediscover skills. The film project supplies its own Node dependencies.
 
-Then request, for example:
+> Use $imagine-science to explain this figure to researchers outside the field. Trace the main claim to the paper, draft a continuous narration, and animate the figure so the critical step lands on the spoken cue. Give me the editable project, a captioned MP4, and the exact frames you checked.
 
-```text
-Use $imagine-science to make a 45-second scientific explainer from the references
-and assets in this project. Start with a source/claim map, an editable scene plan,
-and a Studio preview. Record what is schematic and what is measured. Prepare
-exact-frame review evidence before exporting.
-```
+For an existing Remotion project, add a project manifest and run the installed skill’s helpers from that project’s root. Set `IMAGINE_CHROME` to use a specific browser or `IMAGINE_CONCURRENCY` to choose the render worker count. [Manifest reference](skills/imagine-science/references/project-format.md)
 
-Installing the skill supplies workflow instructions and helper scripts. The film
-project still needs its own Node dependencies and the media tools above. The
-skill can use the starter or an existing Remotion project.
+## Development and rights
 
-## Make your own film
+Run `npm run check` for both manifests, linting, types, and tests. Run `npm run build` to bundle the starter. Generating stills and passing technical verification are parts of review. Researchers assess the scientific claims and what each visual implies. [Contributing](CONTRIBUTING.md) · [CI template](ci/README.md)
 
-1. Write the learning objective, audience, supported claims, and visual references.
-2. Put redistributable media under `public/`, then register its source, rights,
-   classification, and optional hash in `film.project.json`.
-3. Replace the example in `src/Diffusion.tsx` or register your own composition.
-   Keep the composition metadata and manifest in agreement.
-4. Update scene ranges, review cues, and motion-extrema frames. Ranges are
-   half-open: `[startFrame, endFrame)`.
-5. For narration, supply a prepared audio file, add it to the asset manifest, set
-   `audio.mode` to `narrated`, and enter captions aligned to the actual speech.
-6. Review evidence, make corrections, export, and verify. Record scientific
-   review separately from visual scores.
-
-Read [the manifest reference](skills/imagine-science/references/project-format.md)
-for the exact format, optional speech windows, stationary regions, and use in an
-existing project. Read [scientific production](skills/imagine-science/references/scientific-production.md)
-for source and claims conventions, and [visual review](skills/imagine-science/references/visual-review.md)
-for coverage and verification limits.
-
-## Project layout
-
-```text
-film.project.json             Scene plan, metadata, provenance, review settings
-src/                         Editable Remotion example and audio/caption component
-public/                      Your registered film assets
-skills/imagine-science/       Installable skill, references, and portable scripts
-tests/                       Contract, media, and installed-skill tests
-docs/                        Starter preview and development evidence
-out/                         Local generated artifacts (ignored)
-```
-
-Tools can also run from an installed skill outside the repository:
-
-```sh
-# Run from the root of the film project; substitute the actual skill path.
-node /path/to/imagine-science/scripts/cli.mjs review 90 120 121
-```
-
-Use `npm run render -- out/custom.mp4` for another output path. Optional
-`IMAGINE_CHROME` selects a Chrome executable; `IMAGINE_CONCURRENCY` sets render
-workers (default 2). Helpers use the Node APIs, so CLI-only settings in
-`remotion.config.ts` do not automatically change helper behavior.
-
-## Status and limits
-
-This is an early toolkit extracted from a personal scientific film workflow.
-The public starter establishes installation, preview, rendering, and review
-mechanics. Its first independent scientific film extraction test is still ahead.
-
-Validation checks the declared timeline and registered assets; it does not
-discover every file referenced in source code. Audio-energy checks cannot prove
-speech content. Stationary-region checks require deliberately chosen regions
-and thresholds. Sampled stills cannot establish every-frame visual quality or
-scientific correctness. Researcher review remains part of production.
-
-## Development and contributing
-
-Use `npm ci`, `npm run check`, and `npm run build`. Media integration tests use
-the local FFmpeg installation. A [GitHub Actions template](ci/README.md) runs those
-checks and renders/verifies the starter. It is supplied as a template because the
-initial publishing credential could not upload active workflows. See
-[CONTRIBUTING.md](CONTRIBUTING.md) for focused contributions and
-[docs/verification.md](docs/verification.md) for the initial validation record.
-
-Dependencies are pinned in `package-lock.json`; installation lifecycle scripts
-are disabled in `.npmrc`. The compatible `typescript-eslint` override keeps the
-lint dependency tree on its patched release. Upgrade related Remotion packages
-together, review lockfile changes, and run the checks before committing.
-
-## License and acknowledgments
-
-Original code, skill instructions, and original starter artwork are
-[MIT licensed](LICENSE). Dependencies and external tools retain their own
-licenses. In particular, Remotion uses its own license and may require a company
-license depending on your use; consult [Remotion's terms](https://www.remotion.dev/license).
-FFmpeg's licensing depends on the installed build. Review rights for any media
-you add. See [NOTICE.md](NOTICE.md).
-
-Created by [Nikhil Iyer](https://github.com/iamnikhiliyer).
+Original code, instructions, and original schematic artwork are MIT licensed. Remotion, fonts, FFmpeg, and the generated voice recording have their own terms. [License](LICENSE) · [Notices](NOTICE.md)

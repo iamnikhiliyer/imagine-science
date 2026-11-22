@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Added the published 4K explainer as an editable example with prepared narration, aligned words, short-form captions, waveform, scene cues, and sources.
+- Added WebVTT export, a timestamped ElevenLabs MP3 response importer, and size-limited web delivery to the portable skill.
+
 ## 0.1.0 — 2026-11-21
 
 ### Added

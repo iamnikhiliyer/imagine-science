@@ -5,6 +5,8 @@ import { execFileSync } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { loadProject, selectReviewFrames } from './project.mjs';
+import { webExport } from './web-export.mjs';
+import { subtitles } from './subtitles.mjs';
 import { verifyMedia } from './media.mjs';
 import { projectRequire, renderProject, reviewProject } from './rendering.mjs';
 
@@ -15,6 +17,8 @@ const usage = `Imagine Science — run from the root of a trusted film project
   review [FRAME ...]        Render review PNGs and an unreviewed report
   render [OUTPUT.mp4]       Export H.264 (default: out/film.mp4)
   verify [INPUT.mp4]        Decode and check export (default: out/film.mp4)
+  web MAX_BYTES [IN] [OUT]  Package a size-limited MP4 (out/film.mp4 → out/web.mp4)
+  subtitles [OUTPUT.vtt]    Write aligned phrase captions (default: out/en.vtt)
   contact-sheet [INPUT.mp4] Sample a 5×6 overview (default: out/film.mp4)
 
 Optional: IMAGINE_CHROME chooses Chrome; IMAGINE_CONCURRENCY sets render workers.
@@ -24,8 +28,9 @@ async function main() {
   const [command = 'help', ...args] = process.argv.slice(2);
   const root = process.cwd();
   if (['help', '--help', '-h'].includes(command)) { console.log(usage); return; }
-  assert.ok(['doctor', 'validate', 'review', 'render', 'verify', 'contact-sheet'].includes(command), `Unknown command: ${command}\n${usage}`);
-  if (command !== 'review') assert.ok(args.length <= (['doctor', 'validate'].includes(command) ? 0 : 1), 'Too many arguments');
+  assert.ok(['doctor', 'validate', 'review', 'render', 'verify', 'web', 'subtitles', 'contact-sheet'].includes(command), `Unknown command: ${command}\n${usage}`);
+  if (command === 'web') assert.ok(args.length >= 1 && args.length <= 3, 'Usage: web MAX_BYTES [INPUT.mp4] [OUTPUT.mp4]');
+  else if (command !== 'review') assert.ok(args.length <= (['doctor', 'validate'].includes(command) ? 0 : 1), 'Too many arguments');
   if (command === 'doctor') {
     const [major, minor] = process.versions.node.split('.').map(Number);
     assert.ok(major > 22 || (major === 22 && minor >= 13), 'Node 22.13+ is required');
@@ -46,6 +51,21 @@ async function main() {
     return;
   }
   if (command === 'review') { await reviewProject(root, args.map(Number)); return; }
+  if (command === 'web') {
+    const output = path.resolve(root, args[2] ?? 'out/web.mp4');
+    const bytes = await webExport(path.resolve(root, args[1] ?? 'out/film.mp4'), output, Number(args[0]), project);
+    console.log('Verified ' + output + ' (' + bytes + ' bytes)');
+    return;
+  }
+  if (command === 'subtitles') {
+    const file = path.resolve(root, args[0] ?? 'out/en.vtt');
+    assert.equal(path.extname(file).toLowerCase(), '.vtt', 'Subtitle output must end in .vtt');
+    const contents = subtitles(project);
+    await mkdir(path.dirname(file), { recursive: true });
+    await writeFile(file, contents);
+    console.log('Wrote ' + file);
+    return;
+  }
   const file = path.resolve(root, args[0] ?? 'out/film.mp4');
   if (command === 'render') { await renderProject(root, file); return; }
   if (command === 'verify') {

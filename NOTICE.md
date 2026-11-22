@@ -13,5 +13,4 @@ assets from external services, or third-party research material.
 - [React license](https://github.com/facebook/react/blob/main/LICENSE)
 - [FFmpeg legal information](https://ffmpeg.org/legal.html)
 
-The included illustration is created directly in source code and requires no
-external images, recordings, fonts, data, or generation services.
+The silent diffusion starter uses code-drawn artwork. The narrated example uses Manrope (SIL Open Font License) and a prepared ElevenLabs Bella recording. Its manifest records the voice, model, settings, source, and audio hash. The generated recording is subject to the applicable ElevenLabs terms.

@@ -55,8 +55,7 @@ work. Do not fabricate an asset or its provenance.
 Write the scene plan in `film.project.json`. Scenes use integer frame ranges
 `[startFrame, endFrame)` and must cover the entire film without gaps or overlaps.
 Add cues at important events and review.extraFrames at motion extrema or dense
-visual moments. For narration, use delivered audio and alignment to establish
-timing; do not guess word timestamps. Keep caption changes editable.
+visual moments. For narrated films, follow [the narration workflow](references/narrated-films.md) to align the continuous take, cue the motion, style the words, and export phrase subtitles.
 
 Define the visual direction from the references: type, palette, diagram language,
 camera, label hierarchy, and pacing. Use restrained layouts that serve the

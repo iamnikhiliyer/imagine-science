@@ -21,13 +21,20 @@
     "render": "node skills/imagine-science/scripts/cli.mjs render",
     "verify": "node skills/imagine-science/scripts/cli.mjs verify",
     "contact-sheet": "node skills/imagine-science/scripts/cli.mjs contact-sheet",
-    "lint": "eslint src && tsc --noEmit",
+    "lint": "eslint src examples/imagine-science/src && tsc --noEmit",
     "test": "node --test tests/*.test.mjs",
-    "check": "npm run validate && npm run lint && npm test"
+    "check": "npm run validate && npm run explainer -- validate && npm run lint && npm test",
+    "dev:explainer": "cd examples/imagine-science && remotion studio src/index.ts --no-open",
+    "explainer": "cd examples/imagine-science && node ../../skills/imagine-science/scripts/cli.mjs",
+    "web": "node skills/imagine-science/scripts/cli.mjs web",
+    "subtitles": "node skills/imagine-science/scripts/cli.mjs subtitles"
   },
   "dependencies": {
+    "@fontsource-variable/manrope": "5.3.0",
     "@remotion/bundler": "4.0.545",
+    "@remotion/captions": "4.0.545",
     "@remotion/cli": "4.0.545",
+    "@remotion/media": "4.0.545",
     "@remotion/renderer": "4.0.545",
     "react": "19.2.3",
     "react-dom": "19.2.3",
