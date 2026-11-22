@@ -1,7 +1,9 @@
 {
   "sampleRate": 44100,
-  "synthesizedSamples": 4057088,
-  "tailPaddingSamples": 112,
-  "modelChunks": 1,
-  "scriptSha256": "1b75ad74ae8835e49fd93f168ce0e3244600eb61ebed51a4b9d41d51e8d32405"
+  "synthesizedSamples": 4027397,
+  "tailPaddingSamples": 0,
+  "modelChunks": 2,
+  "scriptSha256": "325959c18732b35e548cf0f42dc08f29cae0ac1a6f8eb0abb4c69a39cc47d25c",
+  "closingPickupStartSample": 3914757,
+  "closingHoldSamples": 29803
 }

@@ -26,7 +26,7 @@ The paper graphic is an original research note about Einstein’s 1905 treatment
 
 Primary source: https://github.com/iamnikhiliyer/imagine-science/tree/v0.1.0
 
-ElevenLabs generated one continuous English take using Bella and eleven_multilingual_v2 at speed 1.0.
+ElevenLabs generated the English narration with Bella and eleven_multilingual_v2 at speed 1.0. The closing sentence was recorded separately with its exclamation mark and the preceding sentence as context.
 The original script, word timings, waveform envelope, and generated FLAC are
 retained. Caption and animation timings derive from the character alignment returned with the recording.
 

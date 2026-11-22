@@ -1674,44 +1674,44 @@
   {
     "text": "Check",
     "startMs": 88770,
-    "endMs": 89002,
+    "endMs": 89025,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "out",
-    "startMs": 89048,
-    "endMs": 89153,
+    "startMs": 89072,
+    "endMs": 89200,
     "timestampMs": null,
     "confidence": null,
     "pageBreakAfter": true
   },
   {
     "text": "Imagine",
-    "startMs": 89199,
-    "endMs": 89617,
+    "startMs": 89258,
+    "endMs": 89745,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Science",
-    "startMs": 89664,
-    "endMs": 90105,
+    "startMs": 89803,
+    "endMs": 90279,
     "timestampMs": null,
     "confidence": null,
     "pageBreakAfter": true
   },
   {
     "text": "on",
-    "startMs": 90151,
-    "endMs": 90244,
+    "startMs": 90337,
+    "endMs": 90477,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "GitHub.",
-    "startMs": 90314,
-    "endMs": 91115,
+    "text": "GitHub!",
+    "startMs": 90535,
+    "endMs": 91324,
     "timestampMs": null,
     "confidence": null,
     "pageBreakAfter": true

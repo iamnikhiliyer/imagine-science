@@ -4,7 +4,7 @@ Write the continuous spoken paragraph first. For each meaningful action, choose 
 
 ## Prepare a take
 
-Use the voice the user selected. The toolkit accepts prepared audio. Its published explainer uses ElevenLabs Bella in one continuous reading. Earlier films used local Kokoro and its word timings. If you use recorded speech, align the transcript to the finished take. A new take of the same script can have different pauses and cue times.
+Use the voice the user selected. The toolkit accepts prepared audio. Its published explainer uses a continuous ElevenLabs Bella soundtrack. The closing invitation was recorded separately with the preceding sentence supplied as context. Earlier films used local Kokoro and its word timings. If you use recorded speech, align the transcript to the finished take. A new take of the same script can have different pauses and cue times.
 
 For ElevenLabs, the separate signed-in CLI exposes `text-to-speech convert_with_timestamps`. Use MP3 output and save the JSON response locally. Keep the original character alignment, encoded audio, and the exact text submitted. Display spellings can differ from spoken spellings. The example’s `production/spoken-tokens.json` maps every displayed token in order, including “FFmpeg” to “eff eff em peg”. The script file contains a `text` field with the canonical paragraph.
 
