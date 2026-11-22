@@ -89,12 +89,12 @@ test('the captions contain exactly the approved wording', () => {
   assert.equal(project.audio.captions.map(c => c.text).join(' '), approved.text);
 });
 
-test('scene divisions follow words in the continuous take without audio padding', () => {
+test('scene divisions follow the spoken cues and include the closing hold', () => {
   const script = JSON.parse(readFileSync(new URL('../production/script.json', import.meta.url)));
   const narration = JSON.parse(readFileSync(new URL('../production/narration-timing.json', import.meta.url)));
   assert.equal(words.map(w => w.text).join(' '), script.text);
   assert.ok(narration.tailPaddingSamples < narration.sampleRate / project.fps);
-  assert.equal(project.durationInFrames, Math.ceil(narration.synthesizedSamples / narration.sampleRate * project.fps));
+  assert.equal(project.durationInFrames, (narration.synthesizedSamples + (narration.closingHoldSamples ?? 0) + narration.tailPaddingSamples) * project.fps / narration.sampleRate);
   for (let i = 1; i < script.beats.length; i++) {
     const anchor = script.beats[i].anchor.split(' ');
     const index = words.findIndex((_, start) => anchor.every((text, offset) => words[start + offset]?.text === text));

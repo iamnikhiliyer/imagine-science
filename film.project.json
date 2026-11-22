@@ -68,7 +68,7 @@
       "title": "Explore Imagine Science",
       "startFrame": 2664,
       "endFrame": 2760,
-      "caption": "Check out Imagine Science on GitHub."
+      "caption": "Check out Imagine Science on GitHub!"
     }
   ],
   "cues": [
@@ -161,9 +161,9 @@
     {
       "path": "explainer/narration.flac",
       "kind": "generated",
-      "source": "ElevenLabs Bella (hpp4J3VqNfWAUOO0d1Us), eleven_multilingual_v2, one English reading. Stability 0.48, similarity 0.78, speed 1. Word cues use provider character timestamps. FFmpeg, SVG, and MP4 use spoken spellings.",
+      "source": "ElevenLabs Bella (hpp4J3VqNfWAUOO0d1Us), eleven_multilingual_v2, English narration with a separately recorded closing sentence. Stability 0.48, similarity 0.78, speed 1. Word cues use provider character timestamps. FFmpeg, SVG, and MP4 use spoken spellings.",
       "license": "Original script MIT. Voice audio generated via ElevenLabs, subject to the applicable ElevenLabs terms.",
-      "sha256": "e302afd208636c771d8086207110bb37983d4de922729a4aec22c9cc46bd1e0c"
+      "sha256": "b66f779fcfeac71960199cfe9c26f581ff81bfe38e7ca2c56133bf85ddf7d645"
     },
     {
       "path": "explainer/starter-preview.png",
@@ -392,8 +392,8 @@
       },
       {
         "startFrame": 2664,
-        "endFrame": 2734,
-        "text": "Check out Imagine Science on GitHub."
+        "endFrame": 2740,
+        "text": "Check out Imagine Science on GitHub!"
       }
     ],
     "speechWindows": [
@@ -439,7 +439,7 @@
       },
       {
         "startFrame": 2664,
-        "endFrame": 2734,
+        "endFrame": 2740,
         "minRms": 0.003
       }
     ]
